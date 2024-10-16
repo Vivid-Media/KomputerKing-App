@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showPopup() {
-        // Inflate the custom popup layout
+
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.popup_layout, null);
 
-        // Create the PopupWindow
+        // Create PopupWindow
         PopupWindow popupWindow = new PopupWindow(popupView,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         // Show the popup window at the center
         popupWindow.showAtLocation(findViewById(android.R.id.content), Gravity.CENTER, 0, 0);
 
-        // Set up button click handlers within the popup
+
         Button buttonBack = popupView.findViewById(R.id.button_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Handle other buttons (Themes, Language, Text Size) similarly
+        // Todo: Handle other buttons (Themes, Language, Text Size) similarly
     }
 }
