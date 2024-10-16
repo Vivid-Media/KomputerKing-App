@@ -1,10 +1,12 @@
 {
-    "Login": [
-        "Admin",
-        "User"
-    ],
-    "Password": [
-        "Adm123",
-        "UserAcc123"
+    "users": [
+        {
+            "login": "Admin",
+            "password": "Adm123"
+        },
+        {
+            "login": "User",
+            "password": "UserAcc123"
+        }
     ]
 }

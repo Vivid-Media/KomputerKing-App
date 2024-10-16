@@ -1,6 +1,20 @@
 {
-    "PCs": [],
-    "Hardware": [],
-    "Cables": [],
-    "Laptops": []
+    "products": [
+        {
+            "category": "pc",
+            "description": ""
+        },
+        {
+            "category": "hardware",
+            "description": ""
+        },
+        {
+            "category": "laptop",
+            "description": ""
+        },
+        {
+            "category": "cable",
+            "description": ""
+        }
+    ]
 }
