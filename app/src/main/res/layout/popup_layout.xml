@@ -10,58 +10,73 @@
 
     <TextView
         android:id="@+id/popup_title"
-        android:layout_width="wrap_content"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:text="@string/popUpSettingsName"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:layout_marginBottom="20dp" />
+        android:text="@string/popUpSettingsName"
+        android:textSize="@dimen/settingstestSize"
+        android:textStyle="bold" />
 
+    <LinearLayout
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
     <Button
         android:id="@+id/button_themes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/popUpSettingsMode"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_button"
+        android:padding="5dp"
+        android:text="@string/popUpSettingsMode"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp" />
+        android:textSize="@dimen/settingsOptiontextSize"
+        />
 
     <Button
         android:id="@+id/button_language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/popUpSettingsLanguage"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_button"
+        android:padding="5dp"
+        android:text="@string/popUpSettingsLanguage"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp" />
+        android:textSize="@dimen/settingsOptiontextSize"
+        />
 
     <Button
         android:id="@+id/button_text_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/popUpSettingsTextSize"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_button"
+        android:padding="5dp"
+        android:text="@string/popUpSettingsTextSize"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp" />
+        android:textSize="@dimen/settingsOptiontextSize"
+        />
+
+</LinearLayout>
 
     <Button
+        android:backgroundTint="@android:color/transparent"
         android:id="@+id/button_back"
-        style="@style/Widget.Material3.Button.TextButton.Dialog"
-        android:layout_width="80dp"
+        android:layout_width="129dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_buttonred"
         android:padding="5dp"
         android:text="@string/popUpExitName"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000" />
+        android:textColor="#000000"
 
-</LinearLayout>
+        />
+
+    </LinearLayout>
