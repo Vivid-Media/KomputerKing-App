@@ -12,6 +12,6 @@
     <string name="appName">KompuKing World</string>
     <string name="popUpSettingsMode">Motyw</string>
     <string name="popUpSettingsLanguage">Język</string>
-    <string name="userPanel">Panel użytkownika</string>
+    <string name="userPanel">Panel Użytkownika</string>
     <string name="popUpSettingsTextSize">Wielkość tekstu</string>
 </resources>
