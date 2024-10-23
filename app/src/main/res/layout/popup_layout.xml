@@ -66,16 +66,14 @@
 
     <Button
         android:id="@+id/button_back"
-        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_buttonred"
+        android:backgroundTint="#FA0505"
         android:padding="5dp"
         android:text="@string/popUpExitName"
         android:textAlignment="center"
-
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000" />
+        android:textColor="#FAFAFA" />
 
     </LinearLayout>

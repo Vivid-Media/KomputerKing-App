@@ -18,7 +18,9 @@
             android:paddingBottom="14pt"
             android:text="Panel użytkownika"
             android:textAlignment="center"
-            android:textSize="@dimen/NazwaSubStrony" />
+            android:textSize="@dimen/NazwaSubStrony"
+            android:textStyle="bold"
+            />
 
         <ImageView
             android:layout_marginBottom="40dp"
@@ -38,12 +40,13 @@
             android:layout_marginTop="16dp"
             android:text="@string/lorem_ipsum"
      />
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/previous"
-  />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FA0505"
+        android:text="@string/previous" />
 
 </LinearLayout>
 
