@@ -16,25 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingBottom="44pt"
-            android:text="Panel użytkownika"
+            android:text="@string/userPanel"
             android:textAlignment="center"
             android:textSize="@dimen/NazwaSubStrony" />
 
 
-
-        <TextView
-            android:id="@+id/textview_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-     />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_back_user_panel"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/previous"
-  />
+            android:text="@string/previous" />
 
 </LinearLayout>
 
