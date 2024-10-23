@@ -7,18 +7,27 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:padding="50dp"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     >
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingBottom="44pt"
+            android:paddingBottom="14pt"
             android:text="Panel użytkownika"
             android:textAlignment="center"
             android:textSize="@dimen/NazwaSubStrony" />
+
+        <ImageView
+            android:layout_marginBottom="40dp"
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_profile_picture"></ImageView>
+
+
 
 
 
