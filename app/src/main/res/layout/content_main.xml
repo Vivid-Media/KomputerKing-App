@@ -37,7 +37,7 @@
         android:id="@+id/navigation"
         android:layout_width="318dp"
         android:layout_height="63dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_marginStart="7dp">
 
     </LinearLayout>
