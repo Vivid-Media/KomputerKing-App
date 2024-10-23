@@ -23,10 +23,12 @@
             />
 
 
-<<<<<<< HEAD
+            <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/ic_profile_picture"></ImageView>
+            android:src="@drawable/round_pfp">
+
+            </ImageView>
 
 
 
@@ -46,14 +48,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FA0505"
         android:text="@string/previous" />
-=======
-        <Button
-            android:id="@+id/button_back_user_panel"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/previous" />
->>>>>>> 9965b83dd31a74ee8b3531fe53d342056e34bb2d
+
 
 </LinearLayout>
 
