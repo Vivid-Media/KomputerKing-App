@@ -1,5 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="settingstestSize">42dp</dimen>
+    <dimen name="NazwaSubStrony">42dp</dimen>
     <dimen name="settingsOptiontextSize">28dp</dimen>
 </resources>
