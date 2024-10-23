@@ -7,24 +7,23 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:padding="50dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     >
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingBottom="14pt"
-            android:text="Panel użytkownika"
+            android:paddingBottom="44pt"
+            android:text="@string/userPanel"
             android:textAlignment="center"
             android:textSize="@dimen/NazwaSubStrony"
             android:textStyle="bold"
             />
 
-        <ImageView
-            android:layout_marginBottom="40dp"
 
+<<<<<<< HEAD
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@mipmap/ic_profile_picture"></ImageView>
@@ -47,6 +46,14 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FA0505"
         android:text="@string/previous" />
+=======
+        <Button
+            android:id="@+id/button_back_user_panel"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previous" />
+>>>>>>> 9965b83dd31a74ee8b3531fe53d342056e34bb2d
 
 </LinearLayout>
 
