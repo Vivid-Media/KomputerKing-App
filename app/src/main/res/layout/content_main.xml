@@ -24,11 +24,20 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:textAlignment="center" />
+
     <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/products"
-        >
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        android:layout_marginStart="7dp">
 
     </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="318dp"
+        android:layout_height="85dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
 </LinearLayout>
