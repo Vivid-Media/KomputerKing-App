@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#Ff0000" />
-    <corners android:radius="12dp" />
+    <solid android:color="#FF0000"/> <!-- Czerwony kolor -->
+    <corners android:radius="8dp"/>  <!-- Zaokrąglone rogi -->
 </shape>
