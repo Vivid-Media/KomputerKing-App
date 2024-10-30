@@ -4,4 +4,5 @@
     <dimen name="NazwaSubStrony">42sp</dimen>
     <dimen name="settingsOptiontextSize">28sp</dimen>
     <dimen name="loginTextSize">18sp</dimen>
+    <dimen name="maxSzerokoscOpisu">180dp</dimen>
 </resources>
