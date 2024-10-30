@@ -27,35 +27,41 @@
         android:textAlignment="center" />
 
     <GridLayout
+
         android:id="@+id/products"
         android:layout_width="348dp"
-        android:layout_height="472dp"
+        android:layout_height="402dp"
         android:layout_marginStart="3dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:rowCount="5"
+        android:columnCount="3"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="165dp"
+            android:layout_height="147dp"
+            android:layout_rowSpan="2"
+            android:layout_row="0"
+            android:layout_column="0"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
-            android:layout_height="43dp"
+            android:layout_height="50dp"
             android:layout_row="0"
             android:layout_column="1"
+            android:textSize="22sp"
             android:text="@string/productPlaceholderName"
             android:textAlignment="center"
-
+            android:maxWidth="170dp"
             />
 
         <TextView
-
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="43dp"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:text="@string/productPlaceholderName"
-            android:textAlignment="center"
-            android:textSize="22sp" />
-
-        <TextView
+            android:maxWidth="180dp"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,8 +70,30 @@
             android:text="@string/productPlaceholderDescription"
             android:textSize="20sp" />
 
+        <ImageView
+            android:layout_rowSpan="2"
+            android:id="@+id/imageView2"
+            android:layout_width="165dp"
+            android:layout_height="147dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:textSize="22sp"
+            android:text="@string/productPlaceholderName"
+            android:textAlignment="center"
+            android:maxWidth="170dp"
+            />
+        <TextView
+            android:maxWidth="180dp"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
@@ -73,22 +101,11 @@
             android:text="@string/productPlaceholderDescription"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="165dp"
-            android:layout_height="147dp"
-            android:layout_row="1"
-            android:layout_column="0"
-            tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="165dp"
-            android:layout_height="147dp"
-            android:layout_row="3"
-            android:layout_column="0"
-            tools:srcCompat="@tools:sample/avatars" />
+
     </GridLayout>
+
+
 
     <LinearLayout
         android:id="@+id/navigation"
