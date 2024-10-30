@@ -30,18 +30,19 @@
 
         android:id="@+id/products"
         android:layout_width="348dp"
-        android:layout_height="452dp"
-        android:layout_marginStart="3dp"
+        android:layout_height="472dp"
         android:gravity="center"
         android:rowCount="6"
         android:columnCount="3"
 
+
         >
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:id="@+id/imageView1"
             android:layout_width="165dp"
-            android:layout_height="147dp"
+            android:layout_height="@dimen/wielkoscobrProdukt"
             android:layout_rowSpan="2"
             android:layout_row="0"
             android:layout_column="0"
@@ -70,10 +71,11 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:layout_rowSpan="2"
             android:id="@+id/imageView2"
             android:layout_width="165dp"
-            android:layout_height="147dp"
+            android:layout_height="@dimen/wielkoscobrProdukt"
             android:layout_row="2"
             android:layout_column="0"
             tools:srcCompat="@tools:sample/avatars" />
@@ -101,10 +103,11 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:layout_rowSpan="2"
             android:id="@+id/imageView3"
             android:layout_width="165dp"
-            android:layout_height="147dp"
+            android:layout_height="@dimen/wielkoscobrProdukt"
             android:layout_row="4"
             android:layout_column="0"
             tools:srcCompat="@tools:sample/avatars" />
@@ -133,7 +136,7 @@
     </GridLayout>
 
 
-    
+
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="318dp"
