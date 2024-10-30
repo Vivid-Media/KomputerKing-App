@@ -31,14 +31,15 @@
         android:id="@+id/products"
         android:layout_width="348dp"
         android:layout_height="452dp"
-        android:layout_marginStart="3dp"
         android:gravity="center"
         android:rowCount="6"
         android:columnCount="3"
 
+
         >
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:id="@+id/imageView1"
             android:layout_width="165dp"
             android:layout_height="147dp"
@@ -70,6 +71,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:layout_rowSpan="2"
             android:id="@+id/imageView2"
             android:layout_width="165dp"
@@ -101,6 +103,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_marginBottom="5pt"
             android:layout_rowSpan="2"
             android:id="@+id/imageView3"
             android:layout_width="165dp"
@@ -133,7 +136,7 @@
     </GridLayout>
 
 
-    
+
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="318dp"
