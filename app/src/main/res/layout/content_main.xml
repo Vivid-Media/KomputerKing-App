@@ -30,12 +30,11 @@
 
         android:id="@+id/products"
         android:layout_width="348dp"
-        android:layout_height="402dp"
+        android:layout_height="452dp"
         android:layout_marginStart="3dp"
         android:gravity="center"
-        android:rowCount="5"
+        android:rowCount="6"
         android:columnCount="3"
-
 
         >
 
@@ -81,7 +80,6 @@
 
 
         <TextView
-<<<<<<< HEAD
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -95,10 +93,6 @@
         <TextView
             android:maxWidth="180dp"
             android:id="@+id/textView6"
-=======
-            android:scrollHorizontally="false"
-            android:id="@+id/textView5"
->>>>>>> b812c085a4be73d48784ae9144ee21a1e785cfb9
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
@@ -106,11 +100,39 @@
             android:text="@string/productPlaceholderDescription"
             android:textSize="20sp" />
 
+        <ImageView
+            android:layout_rowSpan="2"
+            android:id="@+id/imageView3"
+            android:layout_width="165dp"
+            android:layout_height="147dp"
+            android:layout_row="4"
+            android:layout_column="0"
+            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:textSize="22sp"
+            android:text="@string/productPlaceholderName"
+            android:textAlignment="center"
+            android:maxWidth="170dp"
+            />
+        <TextView
+            android:maxWidth="180dp"
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:text="@string/productPlaceholderDescription"
+            android:textSize="20sp" />
+
 
 
     </GridLayout>
-
-
+    
 
     <LinearLayout
         android:id="@+id/navigation"
