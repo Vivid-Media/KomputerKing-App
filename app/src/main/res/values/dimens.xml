@@ -3,4 +3,5 @@
     <dimen name="settingstestSize">42sp</dimen>
     <dimen name="NazwaSubStrony">42sp</dimen>
     <dimen name="settingsOptiontextSize">28sp</dimen>
+    <dimen name="loginTextSize">18sp</dimen>
 </resources>

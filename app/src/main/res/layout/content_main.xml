@@ -81,6 +81,7 @@
 
 
         <TextView
+<<<<<<< HEAD
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -94,6 +95,10 @@
         <TextView
             android:maxWidth="180dp"
             android:id="@+id/textView6"
+=======
+            android:scrollHorizontally="false"
+            android:id="@+id/textView5"
+>>>>>>> b812c085a4be73d48784ae9144ee21a1e785cfb9
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
