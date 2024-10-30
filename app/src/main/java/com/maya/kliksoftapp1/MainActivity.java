@@ -1,87 +1,80 @@
 package com.maya.kliksoftapp1;
 
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.maya.kliksoftapp1.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private DatabaseHelper databaseHelper;
+    private EditText editTextLogin, editTextPassword, editTextRepeatPassword;
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        databaseHelper = new DatabaseHelper(this);
+
+        // Initialize EditText fields
+        editTextLogin = findViewById(R.id.editTextLogin);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextRepeatPassword = findViewById(R.id.editTextRepeatPassword);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    // This method is called when the Login button is clicked
+    public void onLoginClick(View view) {
+        EditText editTextLogin = findViewById(R.id.editTextLogin);
+        EditText editTextPassword = findViewById(R.id.editTextPassword);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        String username = editTextLogin.getText().toString();
+        String password = editTextPassword.getText().toString();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // Check if the user exists in the database
+        if (databaseHelper.checkUser(username, password)) {
+            // Load the content_main layout if login is successful
+            setContentView(R.layout.content_main);
+            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+        } else {
+            // Show an error message if login fails
+            Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
-    private void showPopup() {
+    public void onNoAccClick(View view){
+        setContentView(R.layout.activity_register);
+    }
 
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_layout, null);
+    public void onRegisterClick(View view) {
+        String username = editTextLogin.getText().toString();
+        String password = editTextPassword.getText().toString();
+        String repeatPassword = editTextRepeatPassword.getText().toString();
 
-        // Create PopupWindow
-        PopupWindow popupWindow = new PopupWindow(popupView,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true);
+        if (validateInputs(username, password, repeatPassword)) {
+            boolean isInserted = databaseHelper.addUser(username, password);
+            if (isInserted) {
+                Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
-        // Show the popup window at the center
-        popupWindow.showAtLocation(findViewById(android.R.id.content), Gravity.CENTER, 0, 0);
-
-
-        Button buttonBack = popupView.findViewById(R.id.button_back);
-        //buttonBack.setOnClickListener(new View.OnClickListener() {
-           // @Override
-//            public void onClick(View v) {
-//                popupWindow.dismiss();
-//            }
-       // });
-
-        // Todo: Handle other buttons (Themes, Language, Text Size) similarly
+    // Validate user inputs
+    private boolean validateInputs(String username, String password, String repeatPassword) {
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!password.equals(repeatPassword)) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }
