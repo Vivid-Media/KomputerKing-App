@@ -76,19 +76,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return exists;
     }
-
-    // Method to dump users to Logcat
-    public void dumpUsersToLog() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERS, null);
-        if (cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
-                String username = cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME));
-                String password = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD));
-                Log.d("Database Info", "ID: " + id + ", Username: " + username + ", Password: " + password);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-    }
 }
