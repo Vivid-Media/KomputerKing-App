@@ -2,7 +2,6 @@ package com.maya.kliksoftapp1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onNoAccClick(View view) {
-        setContentView(R.layout.activity_register);
+        Intent intent = new Intent(this, ActivityRegister.class);
+        startActivity(intent);
+        finish();
     }
 
 
