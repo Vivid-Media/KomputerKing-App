@@ -20,6 +20,8 @@
     <string name="loginTextRegisterHeader">Zarejestruj się na nasz serwis</string>
     <string name="productPlaceholderDescription">DESCRIPTION OF PRODUCT</string>
     <string name="popUpSettingsTextSize">Wielkość tekstu</string>
+    <string name="loginButtonText">Loguj</string>
+    <string name="loginButtonRegisterText">Zarejestruj</string>
     <string name="copyrightText">© Vivid Media Inc</string>
     <string name="loginTextRepeatPassword">Powtórz Hasło</string>
 </resources>

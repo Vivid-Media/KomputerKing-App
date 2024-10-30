@@ -68,6 +68,19 @@
         android:layout_gravity="center"
         android:ems="10"
         android:inputType="textPassword" />
+    <Button
+        app:backgroundTint="@null"
+        android:id="@+id/button_themes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_button"
+        android:padding="5dp"
+        android:text="@string/loginButtonText"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="@dimen/loginTextSize"
+        />
     <!-- Footer -->
     <TextView
         android:id="@+id/footerText"
@@ -81,4 +94,6 @@
         android:textStyle="bold"
         android:textFontWeight="100"
         android:textSize="14sp" />
+
+
 </LinearLayout>
