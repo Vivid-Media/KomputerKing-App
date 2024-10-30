@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button buttonBack = popupView.findViewById(R.id.button_back);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-            }
-        });
+        //buttonBack.setOnClickListener(new View.OnClickListener() {
+           // @Override
+//            public void onClick(View v) {
+//                popupWindow.dismiss();
+//            }
+       // });
 
         // Todo: Handle other buttons (Themes, Language, Text Size) similarly
     }
