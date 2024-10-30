@@ -39,10 +39,6 @@ public class ActivityRegister extends AppCompatActivity {
             boolean isInserted = databaseHelper.addUser(username, password);
             if (isInserted) {
                 Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
-
-                // Log all users to Logcat
-                databaseHelper.dumpUsersToLog();
-
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
