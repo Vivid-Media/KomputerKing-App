@@ -21,10 +21,10 @@
         android:layout_width="314dp"
         android:layout_height="match_parent"
         android:layout_margin="40dp"
-
         android:gravity="center"
         android:orientation="horizontal"
         android:textAlignment="center" />
+
 
     <GridLayout
 
@@ -60,7 +60,7 @@
             />
 
         <TextView
-            android:maxWidth="180dp"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             android:maxWidth="170dp"
             />
         <TextView
-            android:maxWidth="180dp"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
             android:maxWidth="170dp"
             />
         <TextView
-            android:maxWidth="180dp"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,10 +130,10 @@
             android:textSize="20sp" />
 
 
-
     </GridLayout>
-    
 
+
+    
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="318dp"
