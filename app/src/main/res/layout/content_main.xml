@@ -20,11 +20,12 @@
         android:gravity="center">
 
         <EditText
+            android:textColor="@color/black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="Czego szukasz?"
+            android:hint="@string/searchHint"
             android:inputType="text"
             android:padding="8dp"
             android:textColorHint="#B0B0B0"
