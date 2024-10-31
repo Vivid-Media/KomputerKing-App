@@ -19,6 +19,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
 
+    // Admin credentials and status
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "admin123";
+    private boolean isAdmin = false;
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -39,8 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Method to insert base users like 'admin' and 'user'
     private void insertDefaultUsers(SQLiteDatabase db) {
         ContentValues adminValues = new ContentValues();
-        adminValues.put(COLUMN_USERNAME, "admin");
-        adminValues.put(COLUMN_PASSWORD, "admin123");
+        adminValues.put(COLUMN_USERNAME, ADMIN_USERNAME);
+        adminValues.put(COLUMN_PASSWORD, ADMIN_PASSWORD);
         db.insert(TABLE_USERS, null, adminValues);
 
         ContentValues userValues = new ContentValues();
@@ -65,15 +70,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    // Method to check if a user exists
+    // Method to check user credentials and set admin status if applicable
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + "=? AND " + COLUMN_PASSWORD + "=?";
         Cursor cursor = db.rawQuery(query, new String[]{username, password});
 
-        boolean exists = (cursor.getCount() > 0);
+        boolean exists = cursor.getCount() > 0;
+
+        // Set isAdmin to true if credentials match the hardcoded admin values
+        if (exists && ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)) {
+            isAdmin = true;
+        } else {
+            isAdmin = false;
+        }
+
         cursor.close();
         db.close();
         return exists;
+    }
+
+    // Getter for isAdmin
+    public boolean isAdmin() {
+        return isAdmin;
     }
 }
