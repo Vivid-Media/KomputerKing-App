@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:id = "@+id/activity_main"
+    android:id="@+id/activity_main"
     android:orientation="vertical"
     android:gravity="center">
 
@@ -68,27 +68,32 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp" /> <!-- Added margin below password field -->
 
+    <!-- Login Button with Top Margin -->
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button_login_register"
+        android:background="@drawable/rounded_button_noacc"
         android:padding="5dp"
-        android:text="@string/loginButtonText"
+        android:text="@string/loginTextLogin"
         android:textColor="#FFFFFF"
         android:textColorHighlight="@color/white"
         android:textSize="@dimen/loginTextSize"
-        android:textStyle="bold"
         android:onClick="onLoginClick"
+        android:textStyle="bold"
         app:backgroundTint="@null" />
+
+    <!-- No Account Button with Top Margin -->
     <Button
         android:id="@+id/button_no_acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_button_noacc"
         android:padding="5dp"
@@ -99,6 +104,7 @@
         android:onClick="onNoAccClick"
         android:textStyle="bold"
         app:backgroundTint="@null" />
+
     <!-- Footer -->
     <TextView
         android:id="@+id/footerText"
@@ -112,6 +118,4 @@
         android:textStyle="bold"
         android:textFontWeight="100"
         android:textSize="14sp" />
-
-
 </LinearLayout>
