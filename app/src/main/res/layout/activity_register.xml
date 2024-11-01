@@ -57,7 +57,7 @@
             android:minHeight="48dp"
             />
 
-        <!-- Reopeat Password Label -->
+        <!-- hasło Label -->
         <TextView
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Hasło -->
+        <!-- Hasło edittext -->
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
             android:hint="Hasło"
             android:minHeight="48dp"
             />
-        <!-- Powtórz hasło -->
+        <!-- Powtórz hasło label-->
         <TextView
             android:id="@+id/passwordRepeatText"
             android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
             android:textStyle="bold"
             />
 
-        <!-- Password EditText -->
+        <!-- powtórz hasło EditText -->
         <EditText
             android:id="@+id/editTextRepeatPassword"
             android:layout_width="wrap_content"
