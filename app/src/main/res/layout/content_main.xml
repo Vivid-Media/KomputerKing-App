@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:visibility="visible"
     tools:visibility="visible">
 
@@ -13,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/appName"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center" />
+        android:textStyle="bold" />
 
     <!-- Centered Search Bar -->
     <LinearLayout
@@ -24,12 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/search_bar_background"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center">
+        android:padding="8dp">
 
         <EditText
-            android:textColor="@color/black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -37,6 +36,7 @@
             android:hint="@string/searchHint"
             android:inputType="text"
             android:padding="13dp"
+            android:textColor="@color/black"
             android:textColorHint="#B0B0B0"
             android:textSize="16sp" />
 
@@ -53,18 +53,18 @@
         android:id="@+id/products"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:rowCount="6"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:columnCount="3"
-        android:layout_marginTop="16dp">
+        android:gravity="center"
+        android:rowCount="6">
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="165dp"
             android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_rowSpan="2"
             android:layout_row="0"
+            android:layout_rowSpan="2"
             android:layout_column="0"
             android:layout_marginBottom="5pt"
             tools:srcCompat="@tools:sample/avatars" />
@@ -75,10 +75,10 @@
             android:layout_height="50dp"
             android:layout_row="0"
             android:layout_column="1"
-            android:textSize="22sp"
+            android:maxWidth="170dp"
             android:text="@string/productPlaceholderName"
             android:textAlignment="center"
-            android:maxWidth="170dp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -86,16 +86,16 @@
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_column="1"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:text="@string/productPlaceholderDescription"
-            android:textSize="20sp"
-            android:maxWidth="@dimen/maxSzerokoscOpisu" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="165dp"
             android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_rowSpan="2"
             android:layout_row="2"
+            android:layout_rowSpan="2"
             android:layout_column="0"
             android:layout_marginBottom="5pt"
             tools:srcCompat="@tools:sample/avatars" />
@@ -106,10 +106,10 @@
             android:layout_height="50dp"
             android:layout_row="2"
             android:layout_column="1"
-            android:textSize="22sp"
+            android:maxWidth="170dp"
             android:text="@string/productPlaceholderName"
             android:textAlignment="center"
-            android:maxWidth="170dp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -117,16 +117,16 @@
             android:layout_height="wrap_content"
             android:layout_row="3"
             android:layout_column="1"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:text="@string/productPlaceholderDescription"
-            android:textSize="20sp"
-            android:maxWidth="@dimen/maxSzerokoscOpisu" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="165dp"
             android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_rowSpan="2"
             android:layout_row="4"
+            android:layout_rowSpan="2"
             android:layout_column="0"
             android:layout_marginBottom="5pt"
             tools:srcCompat="@tools:sample/avatars" />
@@ -137,10 +137,10 @@
             android:layout_height="50dp"
             android:layout_row="4"
             android:layout_column="1"
-            android:textSize="22sp"
+            android:maxWidth="170dp"
             android:text="@string/productPlaceholderName"
             android:textAlignment="center"
-            android:maxWidth="170dp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/textView8"
@@ -148,41 +148,62 @@
             android:layout_height="wrap_content"
             android:layout_row="5"
             android:layout_column="1"
+            android:maxWidth="@dimen/maxSzerokoscOpisu"
             android:text="@string/productPlaceholderDescription"
-            android:textSize="20sp"
-            android:maxWidth="@dimen/maxSzerokoscOpisu" />
+            android:textSize="20sp" />
     </GridLayout>
 
-<!--- stopa nawigacyjna -->
-    <LinearLayout
-        android:paddingBottom="10dp"
-        android:layout_marginBottom="-25dp"
+    <!--- stopa nawigacyjna -->
+
+
+    <FrameLayout
         android:layout_width="335dp"
-        android:layout_height="111dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@drawable/round_navigation_footer">
+        android:layout_height="121dp"
+        android:layout_marginBottom="-32dp"
+        android:background="@drawable/round_navigation_footer"
+        >
 
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginRight="12dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="22dp"
+            android:text="@string/copyrightText"
+            android:textAlignment="center" />
 
-    <ImageView
-        android:id="@+id/image2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginRight="12dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/image3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="335dp"
+            android:layout_height="111dp"
+            android:layout_marginBottom="-22dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="12dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="12dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+    >
+
+
 </LinearLayout>
-
-
-    </LinearLayout>
