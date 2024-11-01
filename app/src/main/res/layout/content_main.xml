@@ -168,8 +168,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="22dp"
-            android:text="@string/copyrightText"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/copyrightText"
+            />
 
 
         <LinearLayout
