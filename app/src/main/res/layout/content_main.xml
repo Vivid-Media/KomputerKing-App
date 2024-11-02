@@ -77,11 +77,11 @@
 
 
     <FrameLayout
+        app:backgroundTint="@null"
         android:layout_width="335dp"
         android:layout_height="121dp"
         android:layout_marginBottom="-32dp"
         android:background="@drawable/round_navigation_footer"
-
         >
 
         <TextView
@@ -95,6 +95,8 @@
 
 
         <LinearLayout
+            android:background="@null"
+            app:backgroundTint="@null"
             android:layout_width="335dp"
             android:layout_height="111dp"
             android:layout_marginBottom="-22dp"
@@ -103,6 +105,7 @@
             android:paddingBottom="3dp">
 
             <ImageView
+
                 android:id="@+id/image1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"

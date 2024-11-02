@@ -57,53 +57,55 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < 15; i++) {
 
-                // Generator obrazu
+                // GENERATOR obrazu
                 ImageView obrazek = new ImageView(this);
                 obrazek.setImageResource(R.drawable.vivid_media);
 
-// Ustawienia LayoutParams dla ImageView
+                // CSS dla ImageView
                 GridLayout.LayoutParams paramsObrazek = new GridLayout.LayoutParams();
                 paramsObrazek.width = 775; // Szerokość w pikselach
                 paramsObrazek.height = 550; // Wysokość
-
-                paramsObrazek.rowSpec = GridLayout.spec(i * 2, 2); // Wiersz , rowspan 2
+                paramsObrazek.rowSpec = GridLayout.spec(i * 2, 2); // Wiersz , rowspan zawsze = 2
+                System.out.println("Tekst: " + i*2);
                 paramsObrazek.columnSpec = GridLayout.spec(0); // nr kolumny
                 paramsObrazek.setMargins(0, 0, 0, 5); // Margines dolny na 5px
 
                 obrazek.setLayoutParams(paramsObrazek);
                 gridLayoutContainer.addView(obrazek); // Dodaj obrazek do kontenera
 
-                // Generator nazwy produktu
+
+
+
+                // GENERATOR nazwy produktu
                 TextView poletekstowe = new TextView(this);
                 poletekstowe.setText("lorem ipsum nazwa produktu");
                 poletekstowe.setMaxWidth(550);
                 poletekstowe.setTextAppearance(R.style.listaproduktównazwa);
 
-                // Ustawienia CSS dla nazwy produktu
+                // CSS dla nazwy produktu
                 GridLayout.LayoutParams paramsText1 = new GridLayout.LayoutParams();
-                paramsText1.rowSpec = GridLayout.spec(0); // Wiersz = w.ob
-                paramsText1.rowSpec = GridLayout.spec(i * 2); // Kolumna wiersza =  k.ob+1
+                paramsText1.rowSpec = GridLayout.spec(i*2); // Wiersz = w.ob
+                paramsText1.columnSpec = GridLayout.spec(1); // Kolumna wiersza =  k.ob+1
                 paramsText1.height = 290;
-                poletekstowe.setLayoutParams(paramsText1);
 
+                poletekstowe.setLayoutParams(paramsText1);
                 gridLayoutContainer.addView(poletekstowe);  // Dodaj nazwe produktu do kontenera
 
 
-                // Generator opisu produktu
+
+                // GENERATOR opisu produktu
                 TextView poleopisu = new TextView(this);
                 poleopisu.setText("lorem ipsum opis produktu");
                 poleopisu.setMaxWidth(550);
                 poleopisu.setTextAppearance(R.style.listaproduktówopis);
 
-                // Ustawienia CSS dla opisu produktu
+                // CSS dla opisu produktu
                 GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
                 paramsText2.rowSpec = GridLayout.spec(i * 2 + 1); // wiersz = w.ob + 1
                 paramsText2.columnSpec = GridLayout.spec(1); //Kolumna wiersza =  tylesamo
 
                 poleopisu.setLayoutParams(paramsText2);
                 gridLayoutContainer.addView(poleopisu); // Dodaj opis produktu do kontenera
-
-
             }
 
 
