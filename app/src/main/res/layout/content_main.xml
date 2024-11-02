@@ -54,6 +54,10 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
+
+
+
     <GridLayout
         android:id="@+id/products"
         android:layout_width="match_parent"
@@ -63,148 +67,6 @@
         android:columnCount="3"
         android:gravity="center"
         android:rowCount="19">
-
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="0"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_row="0"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
-            />
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_row="1"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-            />
-
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="2"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_row="2"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
- />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_row="3"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-        />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="4"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_row="4"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
-            />
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_row="5"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-            />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="6"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_row="6"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
-             />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_row="7"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-            />
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="8"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_row="8"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
-            />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_row="9"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-            />
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="165dp"
-            android:layout_height="@dimen/wielkoscobrProdukt"
-            android:layout_row="10"
-            android:layout_rowSpan="2"
-            android:layout_column="0"
-            android:layout_marginBottom="5pt"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_row="10"
-            android:layout_column="1"
-            style="@style/listaproduktównazwa"
-            />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_row="11"
-            android:layout_column="1"
-            style="@style/listaproduktówopis"
-            />
-
 
 
 

@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "password";
 
     // Admin credentials and status
-    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_USERNAME = "adminj";
     private static final String ADMIN_PASSWORD = "admin123";
     private boolean isAdmin = false;
 
@@ -49,8 +49,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, adminValues);
 
         ContentValues userValues = new ContentValues();
-        userValues.put(COLUMN_USERNAME, "user");
-        userValues.put(COLUMN_PASSWORD, "user123");
+        userValues.put(COLUMN_USERNAME, "s");
+        userValues.put(COLUMN_PASSWORD, "s");
         db.insert(TABLE_USERS, null, userValues);
     }
 
