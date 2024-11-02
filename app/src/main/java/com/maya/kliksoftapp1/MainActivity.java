@@ -45,18 +45,17 @@ public class MainActivity extends AppCompatActivity {
     public void onLoginClick(View view) {
         String username = editTextLogin.getText().toString();
         String password = editTextPassword.getText().toString();
-
-        // Check if the user exists in the database
+        if (databaseHelper.checkUser(username, password)) {
+            setContentView(R.layout.content_main); // Load main content layout
+            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+            // Check if the user exists in the database
 
             setContentView(R.layout.content_main); // Load main content layout
             // Find the container in content_main.xml
             GridLayout gridLayoutContainer = findViewById(R.id.products);
 
-            int zwieksz = 0;
 
-
-
-            for (int i = 0;i < 15; i++) {
+            for (int i = 0; i < 15; i++) {
 
                 // Generator obrazu
                 ImageView obrazek = new ImageView(this);
@@ -108,8 +107,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
         }
+        else {
+            Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     }
 
