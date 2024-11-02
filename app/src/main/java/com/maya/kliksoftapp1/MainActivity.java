@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            for (int i = 0;i < 7; i++) {
+            for (int i = 0;i < 15; i++) {
 
                 // Generator obrazu
                 ImageView obrazek = new ImageView(this);
