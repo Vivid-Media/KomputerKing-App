@@ -63,7 +63,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
-        android:layout_weight="1"
         android:columnCount="3"
         android:gravity="center"
         android:rowCount="79">
@@ -89,7 +88,8 @@
                 android:id="@+id/image1"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/shopping_cart_icon_alt"
                 android:visibility="visible"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -97,7 +97,8 @@
                 android:id="@+id/profileImage"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/profile_image_alt"
                 android:visibility="visible"
                 tools:srcCompat="@drawable/profil" />
 
@@ -105,7 +106,8 @@
                 android:id="@+id/settingsImage"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/settings_icon_alt"
                 android:visibility="visible"
                 tools:srcCompat="@drawable/settings" />
         </LinearLayout>

@@ -29,4 +29,7 @@
     <string name="repeatPasswordHint">Powtórz hasło...</string>
     <string name="searchHint">Czego szukasz?</string>
     <string name="loginTextRepeatPassword">Powtórz Hasło</string>
+    <string name="shopping_cart_icon_alt">Shopping Cart ICON</string>
+    <string name="profile_image_alt">Profile Image</string>
+    <string name="settings_icon_alt">Settings Icon</string>
 </resources>

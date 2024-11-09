@@ -47,7 +47,7 @@
         android:hint="@string/loginNameHint"
         android:layout_gravity="center"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"/>
 
     <!-- Password Label -->
     <TextView
