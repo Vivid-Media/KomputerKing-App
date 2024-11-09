@@ -76,58 +76,47 @@
     <!--- stopa nawigacyjna -->
 
 
-    <FrameLayout
-        app:backgroundTint="@null"
-        android:layout_width="335dp"
-        android:layout_height="121dp"
-        android:layout_marginBottom="-32dp"
-        android:background="@drawable/round_navigation_footer"
-        >
-
-        <TextView
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="22dp"
-            android:textAlignment="center"
-            style="@style/copyrightText"
-            />
-
-
         <LinearLayout
-            android:background="@null"
-            app:backgroundTint="@null"
             android:layout_width="335dp"
             android:layout_height="111dp"
             android:layout_marginBottom="-22dp"
+            android:background="@drawable/round_navigation_footer"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingBottom="3dp">
-
+            android:paddingBottom="3dp"
+            >
             <ImageView
-
                 android:id="@+id/image1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_marginRight="12dp"
+                android:visibility="visible"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
-                android:id="@+id/image2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/profileImage"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_marginRight="12dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:visibility="visible"
+                tools:srcCompat="@drawable/profil" />
 
             <ImageView
-                android:id="@+id/image3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:id="@+id/settingsImage"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginRight="12dp"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/settings" />
         </LinearLayout>
 
-
-    </FrameLayout>
+    <TextView
+        style="@style/copyrightText"
+        android:layout_width="183dp"
+        android:layout_height="34dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="22dp"
+        android:textAlignment="center" />
 
 
 </LinearLayout>
