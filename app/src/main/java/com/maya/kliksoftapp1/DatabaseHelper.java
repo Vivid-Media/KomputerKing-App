@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table and Column Names
     private static final String TABLE_USERS = "users";
-    private static final String PRODUCT_TABLE = "products"
+    private static final String PRODUCT_TABLE = "products";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
     private static final String PRODUCT_NAME = "products";
