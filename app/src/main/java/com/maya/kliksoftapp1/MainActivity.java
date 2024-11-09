@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void Kys(View view){
+        Toast.makeText(this, "Kliknoles przycisk", Toast.LENGTH_SHORT).show();
+    }
+
 
 
 

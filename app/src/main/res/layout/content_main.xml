@@ -103,6 +103,8 @@
                  />
 
             <ImageView
+                android:clickable="true"
+                android:onClick="Kys"
                 android:id="@+id/settingsImage"
                 android:src="@drawable/settings"
                 android:layout_width="90dp"
