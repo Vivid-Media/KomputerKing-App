@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table and Column Names
     private static final String TABLE_USERS = "users";
+    private static final String PRODUCT_TABLE = "products"
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
     private static final String PRODUCT_NAME = "products";
@@ -42,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_PASSWORD + " TEXT" + ")";
         db.execSQL(CREATE_USERS_TABLE);
 
-        String CREATE_PRODUCTS_TABLE = "CREATE TABLE products" + "(" +
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE + "(" +
                 COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PRODUCT_NAME + "TEXT," + PRODUCT_DESCRIPTION
                 + "TEXT," + PRODUCT_PRICE + "INTEGER" + ")";
@@ -101,9 +102,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
     public boolean addProduct(String productName, String productDescription, int productPrice){
-        //TODO: function to add products
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PRODUCT_NAME, productName);
+        values.put(PRODUCT_DESCRIPTION, productDescription);
+        values.put(PRODUCT_PRICE, productPrice);
+        long result = db.insert(PRODUCT_TABLE, null, values);
+        return result != -1;
     }
-    // Getter for isAdmin
     public boolean isAdmin() {
         return isAdmin;
     }
