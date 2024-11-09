@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE products" + "(" +
                 COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PRODUCT_NAME + "TEXT," + PRODUCT_DESCRIPTION
-                + "TEXT" + PRODUCT_PRICE + "TEXT" + ")";
+                + "TEXT," + PRODUCT_PRICE + "INTEGER" + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
 
         // Insert default users
@@ -100,7 +100,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return exists;
     }
-
+    public boolean addProduct(String productName, String productDescription, int productPrice){
+        //TODO: function to add products
+    }
     // Getter for isAdmin
     public boolean isAdmin() {
         return isAdmin;
