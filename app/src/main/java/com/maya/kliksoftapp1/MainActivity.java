@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Kys(View view){
         Toast.makeText(this, "Kliknoles przycisk", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.popup_layout);
     }
 
 
