@@ -95,12 +95,11 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:src="@drawable/profil"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginEnd="12dp"
                 android:contentDescription="@string/profile_image_alt"
-                 />
+                android:src="@drawable/profil" />
 
             <ImageView
                 android:clickable="true"
