@@ -20,8 +20,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "password";
 
     // Admin credentials and status
-    private static final String ADMIN_USERNAME = "adminj";
-    private static final String ADMIN_PASSWORD = "admin123";
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "123";
     private boolean isAdmin = false;
 
     public DatabaseHelper(Context context) {
