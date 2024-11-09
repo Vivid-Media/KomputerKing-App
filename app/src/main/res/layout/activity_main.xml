@@ -44,6 +44,7 @@
         android:id="@+id/editTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="@string/loginNameHint"
         android:layout_gravity="center"
         android:ems="10"
         android:inputType="text" />
@@ -68,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
+        android:hint="@string/passwordHint"
         android:inputType="textPassword"
         android:layout_marginBottom="16dp" /> <!-- Added margin below password field -->
 

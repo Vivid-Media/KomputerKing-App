@@ -24,6 +24,9 @@
     <string name="loginButtonRegisterText">Zarejestruj</string>
     <string name="loginButtonNoAccountText">Nie mam konta</string>
     <string name="copyrightText">© Vivid Media Inc</string>
+    <string name="passwordHint">Twoje hasło...</string>
+    <string name="loginNameHint">Twój login...</string>
+    <string name="repeatPasswordHint">Powtórz hasło...</string>
     <string name="searchHint">Czego szukasz?</string>
     <string name="loginTextRepeatPassword">Powtórz Hasło</string>
 </resources>

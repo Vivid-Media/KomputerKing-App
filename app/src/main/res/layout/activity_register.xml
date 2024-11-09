@@ -53,7 +53,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="text"
-            android:hint="Login"
+            android:hint="@string/loginNameHint"
             android:minHeight="48dp"
             />
 
@@ -78,7 +78,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Hasło"
+            android:hint="@string/passwordHint"
             android:minHeight="48dp"
             />
         <!-- Powtórz hasło label-->
@@ -103,7 +103,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Powtórz hasło"
+            android:hint="@string/repeatPasswordHint"
             android:minHeight="48dp"
             />
 
