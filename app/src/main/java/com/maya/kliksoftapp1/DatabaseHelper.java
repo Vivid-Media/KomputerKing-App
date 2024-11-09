@@ -19,7 +19,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USERS = "users";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_USERNAME = "username";
+    private static final String PRODUCT_NAME = "products";
+    private static final String PRODUCT_DESCRIPTION = "description";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String PRODUCT_PRICE = "price";
 
     // Admin credentials and status
     private static final String ADMIN_USERNAME = "admin";
@@ -38,6 +41,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_USERNAME + " TEXT,"
                 + COLUMN_PASSWORD + " TEXT" + ")";
         db.execSQL(CREATE_USERS_TABLE);
+
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE products" + "(" +
+                COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + PRODUCT_NAME + "TEXT," + PRODUCT_DESCRIPTION
+                + "TEXT" + PRODUCT_PRICE + "TEXT" + ")";
+        db.execSQL(CREATE_PRODUCTS_TABLE);
 
         // Insert default users
         insertDefaultUsers(db);
