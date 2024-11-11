@@ -8,7 +8,7 @@
     </style>
 
 
-    <style name="listaproduktówopis">
+    <style name="productListDescription">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxWidth">@dimen/maxSzerokoscOpisu</item>
@@ -16,7 +16,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="listaproduktównazwa">
+    <style name="productListName">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:maxWidth">170dp</item>

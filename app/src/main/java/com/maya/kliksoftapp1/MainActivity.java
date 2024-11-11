@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView poletekstowe = new TextView(this);
                 poletekstowe.setText("lorem ipsum nazwa produktu");
                 poletekstowe.setMaxWidth(550);
-                poletekstowe.setTextAppearance(R.style.listaproduktównazwa);
+                poletekstowe.setTextAppearance(R.style.productListName);
                 GridLayout.LayoutParams paramsText1 = new GridLayout.LayoutParams();
                 paramsText1.rowSpec = GridLayout.spec(i * 2);
                 paramsText1.columnSpec = GridLayout.spec(1);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView poleopisu = new TextView(this);
                 poleopisu.setText("lorem ipsum opis produktu");
                 poleopisu.setMaxWidth(550);
-                poleopisu.setTextAppearance(R.style.listaproduktówopis);
+                poleopisu.setTextAppearance(R.style.productListDescription);
                 GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
                 paramsText2.rowSpec = GridLayout.spec(i * 2 + 1);
                 paramsText2.columnSpec = GridLayout.spec(1);

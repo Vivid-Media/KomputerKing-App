@@ -77,7 +77,6 @@
         android:padding="5dp"
         android:text="@string/popUpExitName"
         android:textAlignment="center"
-        android:onClick=""
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#FAFAFA" />
 
