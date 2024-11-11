@@ -70,41 +70,41 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0; i < 15; i++) {
                 // GENERATOR image
-                ImageView obrazek = new ImageView(this);
-                obrazek.setImageResource(R.drawable.vivid_media);
+                ImageView productImage = new ImageView(this);
+                productImage.setImageResource(R.drawable.vivid_media);
 
                 // CSS for ImageView
-                GridLayout.LayoutParams paramsObrazek = new GridLayout.LayoutParams();
-                paramsObrazek.width = 775; // Width in pixels
-                paramsObrazek.height = 550; // Height
-                paramsObrazek.rowSpec = GridLayout.spec(i * 2, 2); // Row span = 2
-                paramsObrazek.columnSpec = GridLayout.spec(0); // Column number
-                paramsObrazek.setMargins(0, 0, 0, 5); // Bottom margin 5px
-                obrazek.setLayoutParams(paramsObrazek);
-                gridLayoutContainer.addView(obrazek);
+                GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
+                paramsImage.width = 775; // Width in pixels
+                paramsImage.height = 550; // Height
+                paramsImage.rowSpec = GridLayout.spec(i * 2, 2); // Row span = 2
+                paramsImage.columnSpec = GridLayout.spec(0); // Column number
+                paramsImage.setMargins(0, 0, 0, 5); // Bottom margin 5px
+                productImage.setLayoutParams(paramsImage);
+                gridLayoutContainer.addView(productImage);
 
                 // GENERATOR product name
-                TextView poletekstowe = new TextView(this);
-                poletekstowe.setText("lorem ipsum nazwa produktu");
-                poletekstowe.setMaxWidth(550);
-                poletekstowe.setTextAppearance(R.style.productListName);
+                TextView nameText = new TextView(this);
+                nameText.setText("lorem ipsum nazwa produktu");
+                nameText.setMaxWidth(550);
+                nameText.setTextAppearance(R.style.productListName);
                 GridLayout.LayoutParams paramsText1 = new GridLayout.LayoutParams();
                 paramsText1.rowSpec = GridLayout.spec(i * 2);
                 paramsText1.columnSpec = GridLayout.spec(1);
                 paramsText1.height = 290;
-                poletekstowe.setLayoutParams(paramsText1);
-                gridLayoutContainer.addView(poletekstowe);
+                nameText.setLayoutParams(paramsText1);
+                gridLayoutContainer.addView(nameText);
 
                 // GENERATOR product description
-                TextView poleopisu = new TextView(this);
-                poleopisu.setText("lorem ipsum opis produktu");
-                poleopisu.setMaxWidth(550);
-                poleopisu.setTextAppearance(R.style.productListDescription);
+                TextView descriptionView = new TextView(this);
+                descriptionView.setText("lorem ipsum opis produktu");
+                descriptionView.setMaxWidth(550);
+                descriptionView.setTextAppearance(R.style.productListDescription);
                 GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
                 paramsText2.rowSpec = GridLayout.spec(i * 2 + 1);
                 paramsText2.columnSpec = GridLayout.spec(1);
-                poleopisu.setLayoutParams(paramsText2);
-                gridLayoutContainer.addView(poleopisu);
+                descriptionView.setLayoutParams(paramsText2);
+                gridLayoutContainer.addView(descriptionView);
             }
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
         } else {
