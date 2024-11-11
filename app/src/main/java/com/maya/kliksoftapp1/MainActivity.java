@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
     private EditText editTextLogin, editTextPassword;
-    private Dialog settingsDialog; // Dialog instance for settings popup
+    private Dialog settingsDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // CSS for ImageView
                 GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
-                paramsImage.width = 775; // Width in pixels
+                paramsImage.width = 750; // Width in pixels
                 paramsImage.height = 550; // Height
                 paramsImage.rowSpec = GridLayout.spec(i * 2, 2); // Row span = 2
                 paramsImage.columnSpec = GridLayout.spec(0); // Column number
