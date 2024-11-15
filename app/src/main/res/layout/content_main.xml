@@ -113,13 +113,17 @@
                 android:src="@drawable/settings" />
         </LinearLayout>
 
+    <!-- Footer -->
     <TextView
+        android:id="@+id/footerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:textAlignment="center"
         style="@style/copyrightText"
-        android:layout_width="183dp"
-        android:layout_height="34dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="30dp"
-        android:textAlignment="center" />
+        />
 
 
 </LinearLayout>
