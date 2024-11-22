@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 settingsDialog.dismiss(); // Close the dialog
-                Toast.makeText(MainActivity.this, "Returning to Main App", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSettingsClick(View view){
-        Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         settingsDialog.show(); // Show the settings popup dialog
     }
 
