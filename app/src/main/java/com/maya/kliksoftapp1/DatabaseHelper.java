@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE + "("
-                + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PRODUCT_NAME + " TEXT,"
                 + PRODUCT_DESCRIPTION + " TEXT,"
                 + PRODUCT_PRICE + " INTEGER" +
