@@ -43,11 +43,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_PASSWORD + " TEXT" + ")";
         db.execSQL(CREATE_USERS_TABLE);
 
-        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE + "(" +
-                COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + PRODUCT_NAME + "TEXT," + PRODUCT_DESCRIPTION
-                + "TEXT," + PRODUCT_PRICE + "INTEGER" + ")";
+
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + PRODUCT_TABLE + "("
+                + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + PRODUCT_NAME + " TEXT,"
+                + PRODUCT_DESCRIPTION + " TEXT,"
+                + PRODUCT_PRICE + " INTEGER" +
+                ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
+
 
         // Insert default users
         insertDefaultUsers(db);
