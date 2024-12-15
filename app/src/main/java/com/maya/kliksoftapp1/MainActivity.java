@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
             // CSS for ImageView
             GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
-            paramsImage.width = 750; // Width in pixels
-            paramsImage.height = 550; // Height
+            paramsImage.width = 550; // Width in pixels
+            paramsImage.height = 450; // Height
             paramsImage.rowSpec = GridLayout.spec(i * 2, 2); // Row span = 2
             paramsImage.columnSpec = GridLayout.spec(0); // Column number
             paramsImage.setMargins(0, 0, 0, 5); // Bottom margin 5px
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             // GENERATOR product description
             TextView descriptionView = new TextView(this);
             descriptionView.setText(product.getProductDesc());
-            descriptionView.setMaxWidth(550);
+            descriptionView.setMaxWidth(500);
             descriptionView.setTextAppearance(R.style.productListDescription);
             GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
             paramsText2.rowSpec = GridLayout.spec(i * 2 + 1);
