@@ -1,11 +1,19 @@
 package com.maya.kliksoftapp1;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -18,13 +26,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "123";
     private boolean isAdmin = false;
+    private Object hello;
+    private Object helloworlddddd;
+    private Object test;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+    public void nice(){
+        System.out.println("test");
+        return;
+    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        System.out.println("testok");
         // Create the users table
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
         db.execSQL("CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, price INTEGER)");
@@ -78,7 +96,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return exists;
     }
+
+    String[] produkty = {"ten","produkt"};
+
+   //it worksssssssssss
+    public String productName;
+    public String productDesc;
+    public int productPrice;
     public boolean addProduct(String productName, String productDescription, int productPrice){
+        this.productName = productName; //
+        this.productDesc = productDescription;
+        this.productPrice = productPrice;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", productName);
@@ -90,4 +118,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean isAdmin() {
         return isAdmin;
     }
+
 }
