@@ -20,6 +20,7 @@
 
     <!-- Grid Layout for Products -->
     <GridLayout
+        android:id="@+id/shopping_cart_items_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rowCount="2"
