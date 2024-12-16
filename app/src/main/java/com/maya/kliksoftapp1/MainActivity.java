@@ -2,6 +2,8 @@ package com.maya.kliksoftapp1;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Layout;
 import java.util.List;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private EditText editTextLogin, editTextPassword;
     private Dialog settingsDialog;
+    private EditText searchBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         databaseHelper = new DatabaseHelper(this);
-
-
-
-
-
 
         // Initialize EditText fields
         editTextLogin = findViewById(R.id.editTextLogin);
@@ -69,35 +67,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackClick(View view){
         setContentView(R.layout.content_main);
+        searchBox = findViewById(R.id.searchBar);
         CreateProducts();
     }
-    
 
-    public void CreateProducts(){
-        GridLayout gridLayoutContainer = findViewById(R.id.products);
+    public void CreateProducts() {
         Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
         Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
         Product product3 = new Product("telefon 44k intelcore 2", "Dobry telefon uwu", 500, 2);
         Product product4 = new Product("tablet 3k gtx 1090px", "Dobry tablet", 500, 3);
+    }
+    public void RenderProducts(String searchString) {
+        GridLayout gridLayoutContainer = findViewById(R.id.products);
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String query = "SELECT rowid, name, description, price FROM products WHERE name MATCH ? OR description MATCH ?";
+        Cursor cursor;
+        if (searchString.isEmpty()) {
+            query = "SELECT rowid, name, description, price FROM products";
+            cursor = db.rawQuery(query, null);
+        } else {
+            cursor = db.rawQuery(query, new String[]{searchString, searchString});
+        }
 
-
-
-        List<Product> products = new ArrayList<>();
-        products.add(product1);
-        products.add(product2);
-        products.add(product3);
-        products.add(product4);
-
-//        for (int nrproduktu = 0; nrproduktu < 4; nrproduktu++) {
-//            products.add(product.getId());
-//        }
-
-
-        for (int i = 0; i < products.size(); i++) {
-            Product product = getProductById(products, i);
+        int i = 0;
+        while (cursor.moveToNext()) {
+            i++;
+            Product product = new Product(
+                cursor.getString(1),
+                cursor.getString(2),
+                Integer.parseInt(cursor.getString(3)),
+                Integer.parseInt(cursor.getString(0))
+            );
             // zrobbic takie do automatycznego ten no products.add(product.getProductName());
 
-            databaseHelper.addProduct(product.productName, "Opis "+i, 120);
+            //databaseHelper.addProduct(product.productName, "Opis "+i, 120);
             // GENERATOR image
             ImageView productImage = new ImageView(this);
             productImage.setImageResource(R.drawable.vivid_media);
@@ -135,14 +138,8 @@ public class MainActivity extends AppCompatActivity {
             descriptionView.setLayoutParams(paramsText2);
             gridLayoutContainer.addView(descriptionView);
         }
-    }
-    public static Product getProductById(List<Product> products, int id) {
-        for (Product product : products) {
-            if (product.getId() == id) {
-                return product;
-            }
-        }
-        return null;  // Jeśli nie znaleziono
+        cursor.close();
+        db.close();
     }
 
     public void onLoginClick(View view) {
@@ -150,8 +147,10 @@ public class MainActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         if (databaseHelper.checkUser(username, password)) {
             setContentView(R.layout.content_main); // Load main content layout
+            searchBox = findViewById(R.id.searchBar);
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
             CreateProducts();
+            RenderProducts(searchBox.getText().toString());
             // Find the container in content_main.xml
 //            GridLayout gridLayoutContainer = findViewById(R.id.products);
 //

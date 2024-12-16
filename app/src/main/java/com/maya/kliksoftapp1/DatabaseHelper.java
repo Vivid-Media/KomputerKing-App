@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Info
     private static final String DATABASE_NAME = "UserDatabase";
 
-    private static final int DATABASE_VERSION = 3;   // 1 more to update
+    private static final int DATABASE_VERSION = 4;   // 1 more to update
 
     // Admin credentials and status
     private static final String ADMIN_USERNAME = "admin";
@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create the users table
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-        db.execSQL("CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, price INTEGER)");
+        db.execSQL("CREATE VIRTUAL TABLE products USING fts4(name, description, price)");
 
         // Insert default users
         insertDefaultUsers(db);
