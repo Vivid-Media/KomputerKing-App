@@ -25,19 +25,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-        <Button
-            app:backgroundTint="@null"
-            android:id="@+id/button_themes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_button"
-            android:padding="5dp"
-            android:text="@string/popUpSettingsMode"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="@dimen/settingsOptiontextSize"
-            />
 
     <Button
         app:backgroundTint="@null"
