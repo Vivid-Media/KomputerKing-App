@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
 
             databaseHelper.addProduct(product.productName, "Opis "+i, 120);
             // GENERATOR image
-            
             String imageName = "zdjecie" + (i);
             ImageView productImage = new ImageView(this);
             int imageResource = getResources().getIdentifier(imageName, "drawable", getPackageName());
@@ -145,15 +144,28 @@ public class MainActivity extends AppCompatActivity {
             nameText.setLayoutParams(paramsText1);
             gridLayoutContainer.addView(nameText);
 
+
+            // GENERATOR product cena
+            TextView priceText = new TextView(this);
+            priceText.setText(product.getProductPrice());
+            priceText.setMaxWidth(550);
+            priceText.setTextAppearance(R.style.productListName);
+            GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
+            paramsText2.rowSpec = GridLayout.spec(i * 2);
+            paramsText2.columnSpec = GridLayout.spec(1);
+            nameText.setLayoutParams(paramsText2);
+            gridLayoutContainer.addView(priceText);
+
+
             // GENERATOR product description
             TextView descriptionView = new TextView(this);
             descriptionView.setText(product.getProductDesc());
             descriptionView.setMaxWidth(500);
             descriptionView.setTextAppearance(R.style.productListDescription);
-            GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
-            paramsText2.rowSpec = GridLayout.spec(i * 2 + 1);
-            paramsText2.columnSpec = GridLayout.spec(1);
-            descriptionView.setLayoutParams(paramsText2);
+            GridLayout.LayoutParams paramsText3 = new GridLayout.LayoutParams();
+            paramsText3.rowSpec = GridLayout.spec(i * 2 + 1);
+            paramsText3.columnSpec = GridLayout.spec(1);
+            descriptionView.setLayoutParams(paramsText3);
             gridLayoutContainer.addView(descriptionView);
         }
     }

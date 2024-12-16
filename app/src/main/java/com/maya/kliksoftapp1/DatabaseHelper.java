@@ -125,11 +125,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    //it worksssssssssss
     public String productName;
     public String productDesc;
-    public int productPrice;
-    public boolean addProduct(String productName, String productDescription, int productPrice){
+    public String productPrice;
+    public boolean addProduct(String productName, String productDescription,int productPrice){
         this.productName = productName; //
         this.productDesc = productDescription;
-        this.productPrice = productPrice;
+        this.productPrice = String.valueOf(productPrice);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", productName);
