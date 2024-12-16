@@ -1,5 +1,6 @@
 package com.maya.kliksoftapp1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,9 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "123";
     private boolean isAdmin = false;
-    private Object hello;
-    private Object helloworlddddd;
-    private Object test;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,6 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         System.out.println("test");
         return;
     }
+
 
 
     @Override
@@ -50,6 +49,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert default users
         insertDefaultUsers(db);
     }
+    public int getUserId(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT id FROM users WHERE username = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{username});
+        int userId = -1;
+        if (cursor.moveToFirst()) {
+            userId = cursor.getInt(0);
+        }
+        cursor.close();
+        return userId;
+    }
+
+    // Fetch username
+    public String getUserName(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT username FROM users WHERE id = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userId)});
+        String username = null;
+        if (cursor.moveToFirst()) {
+            username = cursor.getString(0);
+        }
+        cursor.close();
+        return username;
+    }
+
 
     // Method to insert base users like 'admin' and 'user'
     private void insertDefaultUsers(SQLiteDatabase db) {
