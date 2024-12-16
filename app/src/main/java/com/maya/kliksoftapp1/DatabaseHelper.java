@@ -26,23 +26,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "123";
     private boolean isAdmin = false;
-    private Object hello;
-    private Object helloworlddddd;
-    private Object test;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-    public void nice(){
-        System.out.println("test");
-        return;
-    }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        System.out.println("testok");
         // Create the users table
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
         db.execSQL("CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, price INTEGER)");
@@ -99,7 +89,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     String[] produkty = {"ten","produkt"};
 
-   //it worksssssssssss
     public String productName;
     public String productDesc;
     public int productPrice;
