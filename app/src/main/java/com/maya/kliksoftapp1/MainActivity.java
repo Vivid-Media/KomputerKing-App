@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         GridLayout gridLayoutContainer = findViewById(R.id.products);
         Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
         Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
-        Product product3 = new Product("telefon 44k intelcore 2", "Dobry telefon uwu", 500, 2);
+        Product product3 = new Product("telefon HD intelcore 2", "Dobry telefon", 300, 2);
         Product product4 = new Product("tablet 3k gtx 1090px", "Dobry tablet", 500, 3);
-
+        Product product5 = new Product("telewizor 12k LG", "Tv 12k firmy lg", 5000, 4);
 
 
         List<Product> products = new ArrayList<>();
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         products.add(product2);
         products.add(product3);
         products.add(product4);
+        products.add(product5);
 
 //        for (int nrproduktu = 0; nrproduktu < 4; nrproduktu++) {
 //            products.add(product.getId());
