@@ -115,13 +115,12 @@ public class MainActivity extends AppCompatActivity {
 
             databaseHelper.addProduct(product.productName, "Opis "+i, 120);
             // GENERATOR image
-
-            // do usuniecia
+            
             String imageName = "zdjecie" + (i);
             ImageView productImage = new ImageView(this);
             int imageResource = getResources().getIdentifier(imageName, "drawable", getPackageName());
             productImage.setImageResource(imageResource);
-            // do usuniecia /\
+
 
 
             // CSS for ImageView
