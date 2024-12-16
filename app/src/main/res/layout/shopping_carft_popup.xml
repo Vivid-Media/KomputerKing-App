@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:layout_gravity="center"
+    android:background="@drawable/shopping_cart_bg"
     android:padding="16dp">
 
     <!-- Back Button -->
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/popUpExitName"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:layout_marginBottom="8dp" />
 
@@ -42,14 +44,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tile"
+                android:text="@string/produkt_name"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cena: 50zł"
+                android:text="@string/cena_display"
+                android:textColor="@color/black"
                 android:gravity="center" />
         </LinearLayout>
 
@@ -69,14 +73,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tile"
+                android:text="@string/produkt_name"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cena: 50zł"
+                android:text="@string/cena_display"
+                android:textColor="@color/black"
                 android:gravity="center" />
         </LinearLayout>
 
@@ -96,14 +102,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tile"
+                android:text="@string/produkt_name"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cena: 50zł"
+                android:text="@string/cena_display"
+                android:textColor="@color/black"
                 android:gravity="center" />
         </LinearLayout>
 
@@ -123,14 +131,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tile"
+                android:text="@string/produkt_name"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cena: 50zł"
+                android:text="@string/cena_display"
+                android:textColor="@color/black"
                 android:gravity="center" />
         </LinearLayout>
     </GridLayout>
