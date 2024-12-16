@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void CreateProducts(){
         GridLayout gridLayoutContainer = findViewById(R.id.products);
+        GridLayout popupshoppingcart = findViewById(R.id.shopping_cart_items_layout);
         Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
         Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
         Product product3 = new Product("telefon HD intelcore 2", "Dobry telefon", 300, 2);
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         products.add(product3);
         products.add(product4);
         products.add(product5);
-        
+
 
 
         for (int i = 0; i < products.size(); i++) {
