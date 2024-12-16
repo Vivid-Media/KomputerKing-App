@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private EditText editTextLogin, editTextPassword;
     private Dialog settingsDialog;
+    private Dialog shoppingCartDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,21 @@ public class MainActivity extends AppCompatActivity {
         settingsDialog = new Dialog(this);
         settingsDialog.setContentView(R.layout.popup_layout);
         settingsDialog.setCancelable(true); // Allows dismissing the dialog when back is pressed
-
+        // Initialize shopping cart dialog
+        shoppingCartDialog = new Dialog(this);
+        shoppingCartDialog.setContentView(R.layout.shopping_carft_popup);
+        shoppingCartDialog.setCancelable(true);
         // Set up the back button within the dialog to dismiss it
         settingsDialog.findViewById(R.id.button_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 settingsDialog.dismiss(); // Close the dialog
+            }
+        });
+        shoppingCartDialog.findViewById(R.id.button_back_shopping).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shoppingCartDialog.dismiss();
             }
         });
     }
@@ -60,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSettingsClick(View view){
         settingsDialog.show(); // Show the settings popup dialog
+    }
+    public void onShoppingCartClick(View view){
+        shoppingCartDialog.show(); // Show the settings popup dialog
     }
     public void onProfileClick(View view) {
         setContentView(R.layout.profile_page);

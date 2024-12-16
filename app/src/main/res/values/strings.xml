@@ -32,5 +32,6 @@
     <string name="shopping_cart_icon_alt">Shopping Cart ICON</string>
     <string name="profile_image_alt">Profile Image</string>
     <string name="settings_icon_alt">Settings Icon</string>
-    <string name="test">"        hello world"</string>
+    <string name="cena_display">Cena: zł</string>
+    <string name="produkt_name">Produkt</string>
 </resources>
