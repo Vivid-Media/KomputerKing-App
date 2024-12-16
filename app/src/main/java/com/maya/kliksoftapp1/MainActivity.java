@@ -8,6 +8,7 @@ import android.os.Bundle;
 import java.util.List;
 import java.util.ArrayList;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -71,9 +72,20 @@ public class MainActivity extends AppCompatActivity {
     public void onSettingsClick(View view){
         settingsDialog.show(); // Show the settings popup dialog
     }
+
+
     public void onShoppingCartClick(View view){
-        shoppingCartDialog.show(); // Show the settings popup dialog
+        shoppingCartDialog.show();
+        Window popupKoszyk = shoppingCartDialog.getWindow();
+        GridLayout popupShoppingCartContainer = popupKoszyk.findViewById(R.id.shopping_cart_items_layout);
+
+        TextView shop = new TextView(this);
+        shop.setText("wow");
+        shop.setMaxWidth(550);
+        popupShoppingCartContainer.addView(shop);
     }
+
+
     public void onProfileClick(View view) {
         setContentView(R.layout.profile_page);
 
@@ -98,11 +110,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+//GridLayout popupshoppingcartContainer = findViewById(R.id.shopping_cart_items_layout);
+// GENERATOR product name w shopp
+
 
 
     public void CreateProducts(){
         GridLayout gridLayoutContainer = findViewById(R.id.products);
-        GridLayout popupshoppingcart = findViewById(R.id.shopping_cart_items_layout);
         Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
         Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
         Product product3 = new Product("telefon HD intelcore 2", "Dobry telefon", 300, 2);
@@ -130,8 +144,6 @@ public class MainActivity extends AppCompatActivity {
             int imageResource = getResources().getIdentifier(imageName, "drawable", getPackageName());
             productImage.setImageResource(imageResource);
 
-
-
             // CSS for ImageView
             GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
             paramsImage.width = 550; // Width in pixels
@@ -141,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             paramsImage.setMargins(0, 0, 0, 5); // Bottom margin 5px
             productImage.setLayoutParams(paramsImage);
             gridLayoutContainer.addView(productImage);
+
 
             // GENERATOR product name
             TextView nameText = new TextView(this);
@@ -153,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
             paramsText1.height = 290;
             nameText.setLayoutParams(paramsText1);
             gridLayoutContainer.addView(nameText);
+
+
 
 
             // GENERATOR product cena

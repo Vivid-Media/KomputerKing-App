@@ -117,32 +117,32 @@
         </LinearLayout>
 
         <!-- Fourth Product -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="8dp"
-            android:gravity="center">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:gravity="center">-->
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_launcher_background" />
+<!--            <ImageView-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:src="@drawable/ic_launcher_background" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/produkt_name"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:gravity="center" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/produkt_name"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cena_display"
-                android:textColor="@color/black"
-                android:gravity="center" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/cena_display"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
     </GridLayout>
 </LinearLayout>
