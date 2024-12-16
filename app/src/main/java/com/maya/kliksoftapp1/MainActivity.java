@@ -71,8 +71,41 @@ public class MainActivity extends AppCompatActivity {
     public void onSettingsClick(View view){
         settingsDialog.show(); // Show the settings popup dialog
     }
-    public void onShoppingCartClick(View view){
-        shoppingCartDialog.show(); // Show the settings popup dialog
+    public void onShoppingCartClick(View view) {
+        shoppingCartDialog.show(); // Show the shopping cart popup dialog
+
+        // Find the container layout in the shopping cart dialog
+        GridLayout popupshoppingcartContainer = shoppingCartDialog.findViewById(R.id.shopping_cart_items_layout);
+        popupshoppingcartContainer.removeAllViews(); // Clear previous items to avoid duplicates
+
+        // Fetch products (you can modify this to fetch only cart items from the database)
+        List<Product> cartProducts = new ArrayList<>();
+        cartProducts.add(new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0));
+        cartProducts.add(new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1));
+        cartProducts.add(new Product("telefon HD intelcore 2", "Dobry telefon", 300, 2));
+
+        for (Product product : cartProducts) {
+            // Generate a name TextView
+            TextView nameText = new TextView(this);
+            nameText.setText(product.getProductName());
+            nameText.setMaxWidth(550);
+            nameText.setTextAppearance(R.style.productListName);
+            popupshoppingcartContainer.addView(nameText);
+
+            // Generate a price TextView
+            TextView priceText = new TextView(this);
+            priceText.setText("Price: " + product.getProductPrice());
+            priceText.setMaxWidth(550);
+            priceText.setTextAppearance(R.style.productListDescription);
+            popupshoppingcartContainer.addView(priceText);
+
+            // Generate a description TextView
+            TextView descriptionText = new TextView(this);
+            descriptionText.setText(product.getProductDesc());
+            descriptionText.setMaxWidth(550);
+            descriptionText.setTextAppearance(R.style.productListDescription);
+            popupshoppingcartContainer.addView(descriptionText);
+        }
     }
     public void onProfileClick(View view) {
         setContentView(R.layout.profile_page);
