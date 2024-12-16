@@ -10,7 +10,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="265dp"
+        android:layout_marginRight="260dp"
         android:layout_marginBottom="655dp"
         android:text="Powrót"
         android:textAlignment="center"
@@ -79,6 +79,48 @@
         android:layout_marginLeft="-325dp"
         android:layout_weight="1"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="-100dp"
+        android:text="Produkt"
+        android:textSize="23dp"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-85dp"
+        android:layout_marginTop="510dp"
+        android:text="Cena: zł"
+        android:textSize="23dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="91dp"
+        android:layout_weight="1"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="-100dp"
+        android:text="Produkt"
+        android:textSize="23dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-125dp"
+        android:layout_marginTop="510dp"
+        android:text="Cena: zł"
+        android:textSize="23dp" />
 
 
 </LinearLayout>
