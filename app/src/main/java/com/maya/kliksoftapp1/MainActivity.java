@@ -3,7 +3,7 @@ package com.maya.kliksoftapp1;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
+
 import java.util.List;
 import java.util.ArrayList;
 import android.view.View;
@@ -14,9 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.maya.kliksoftapp1.databinding.ActivityMainBinding;
-import com.maya.kliksoftapp1.databinding.ContentMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.content_main);
         CreateProducts();
     }
-    
+
+
+
+
 
     public void CreateProducts(){
         GridLayout gridLayoutContainer = findViewById(R.id.products);
@@ -90,14 +90,21 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
 
+
         for (int i = 0; i < products.size(); i++) {
+
             Product product = getProductById(products, i);
-            // zrobbic takie do automatycznego ten no products.add(product.getProductName());
 
             databaseHelper.addProduct(product.productName, "Opis "+i, 120);
             // GENERATOR image
+
+            // do usuniecia
+            String imageName = "zdjecie" + (i);
             ImageView productImage = new ImageView(this);
-            productImage.setImageResource(R.drawable.komputer);
+            int imageResource = getResources().getIdentifier(imageName, "drawable", getPackageName());
+            productImage.setImageResource(imageResource);
+            // do usuniecia /\
+
 
             // CSS for ImageView
             GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();

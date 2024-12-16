@@ -46,7 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Create the users table
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
         db.execSQL("CREATE TABLE products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT, price INTEGER)");
-
         // Insert default users
         insertDefaultUsers(db);
     }
