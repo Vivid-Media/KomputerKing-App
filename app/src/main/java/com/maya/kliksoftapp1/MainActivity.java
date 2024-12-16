@@ -115,11 +115,7 @@ public class MainActivity extends AppCompatActivity {
         products.add(product3);
         products.add(product4);
         products.add(product5);
-
-//        for (int nrproduktu = 0; nrproduktu < 4; nrproduktu++) {
-//            products.add(product.getId());
-//        }
-
+        
 
 
         for (int i = 0; i < products.size(); i++) {
