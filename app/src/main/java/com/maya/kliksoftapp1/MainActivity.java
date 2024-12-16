@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             databaseHelper.addProduct(product.productName, "Opis "+i, 120);
             // GENERATOR image
             ImageView productImage = new ImageView(this);
-            productImage.setImageResource(R.drawable.vivid_media);
+            productImage.setImageResource(R.drawable.komputer);
 
             // CSS for ImageView
             GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
