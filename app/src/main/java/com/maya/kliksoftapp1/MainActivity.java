@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         settingsDialog.show(); // Show the settings popup dialog
     }
     public void onProfileClick(View view) {
-        // Load the profile page layout
         setContentView(R.layout.profile_page);
 
         // Retrieve user ID from SharedPreferences
@@ -75,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         // Fetch the username from the database using the user ID
         String username = databaseHelper.getUserName(userId);
 
-        // Find the TextView in the profile_page.xml layout and set the username
         TextView userNameTextView = findViewById(R.id.userName);
         if (username != null) {
             userNameTextView.setText(username);
@@ -83,9 +81,6 @@ public class MainActivity extends AppCompatActivity {
             userNameTextView.setText("Unknown User");
         }
     }
-
-
-
     public void onBackClick(View view){
         setContentView(R.layout.content_main);
         CreateProducts();
