@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
+import android.graphics.Color;
 import java.util.List;
 import java.util.ArrayList;
 import android.view.View;
@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView shop = new TextView(this);
         shop.setText("wow");
+        shop.setTextColor(Color.BLACK);
+
         shop.setMaxWidth(550);
         popupShoppingCartContainer.addView(shop);
     }
