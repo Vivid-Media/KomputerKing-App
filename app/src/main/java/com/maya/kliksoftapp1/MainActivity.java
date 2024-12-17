@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
             nameText.setTextAppearance(R.style.productListName);  // Assuming you have a style for product names
             GridLayout.LayoutParams paramsText1 = new GridLayout.LayoutParams();
             paramsText1.rowSpec = GridLayout.spec(i * 5 + 2);  // Row below the button
-            paramsText1.columnSpec = GridLayout.spec(1);  // First column
+            paramsText1.columnSpec = GridLayout.spec(2);  // First column
             nameText.setLayoutParams(paramsText1);
             gridLayoutContainer.addView(nameText);
 
@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             priceText.setTextAppearance(R.style.productListName);  // Assuming you have a style for price
             GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
             paramsText2.rowSpec = GridLayout.spec(i * 5 + 3);  // Row below the name
-            paramsText2.columnSpec = GridLayout.spec(1);  // First column
+            paramsText2.columnSpec = GridLayout.spec(2);  // First column
             priceText.setLayoutParams(paramsText2);
             gridLayoutContainer.addView(priceText);
 
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
             descriptionView.setTextAppearance(R.style.productListDescription);  // Assuming you have a style for description
             GridLayout.LayoutParams paramsText3 = new GridLayout.LayoutParams();
             paramsText3.rowSpec = GridLayout.spec(i * 5 + 4);  // Row below the price
-            paramsText3.columnSpec = GridLayout.spec(1);  // First column
+            paramsText3.columnSpec = GridLayout.spec(2);  // First column
             descriptionView.setLayoutParams(paramsText3);
             gridLayoutContainer.addView(descriptionView);
             i++;
