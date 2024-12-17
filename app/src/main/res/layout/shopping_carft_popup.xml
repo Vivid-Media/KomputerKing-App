@@ -28,6 +28,8 @@
         android:layout_height="wrap_content"
         android:rowCount="2"
         android:columnCount="2"
+        android:textColor = "@color/black"
+
         android:alignmentMode="alignMargins"
         android:padding="8dp"
         android:layout_gravity="center">
