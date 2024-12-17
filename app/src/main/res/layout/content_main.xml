@@ -73,7 +73,7 @@
     <!--- stopa nawigacyjna -->
         <LinearLayout
             android:layout_width="335dp"
-            android:layout_height="111dp"
+            android:layout_height="90dp"
             android:layout_marginBottom="-22dp"
             android:background="@drawable/round_navigation_footer"
             android:gravity="center"
