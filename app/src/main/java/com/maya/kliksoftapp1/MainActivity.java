@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackClick(View view){
         setContentView(R.layout.content_main);
-        //searchBox = findViewById(R.id.searchBar);
-        RenderProducts(searchBox.getText().toString());
+        initializeViews();
+        onSearch(view);
     }
     public boolean RenderProducts(String searchString) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
@@ -156,24 +156,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void initializeViews() {
+        searchBox = findViewById(R.id.searchBar);
+        gridLayoutContainer = findViewById(R.id.products);
+    }
     public void onLoginClick(View view) {
         String username = editTextLogin.getText().toString();
         String password = editTextPassword.getText().toString();
         if (databaseHelper.checkUser(username, password)) {
             setContentView(R.layout.content_main); // Load main content layout
-            searchBox = findViewById(R.id.searchBar);
+            initializeViews();
+
             searchBox.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
                 @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
+                public void onTextChanged(CharSequence s, int start, int before, int count) {}
                 @Override
                 public void afterTextChanged(Editable s) { onSearch(view); }
             });
             findViewById(R.id.searchButton).setOnClickListener(this::onSearch);
-            gridLayoutContainer = findViewById(R.id.products);
+
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
             Log.d("SEARCH STRING EMPTY?", "" + searchBox.getText().toString().isEmpty());
             RenderProducts(searchBox.getText().toString());
