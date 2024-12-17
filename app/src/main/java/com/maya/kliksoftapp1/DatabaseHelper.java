@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Database Info
     private static final String DATABASE_NAME = "UserDatabase";
 
-    private static final int DATABASE_VERSION = 4;   // 1 more to update
+    private static final int DATABASE_VERSION = 5;   // 1 more to update
 
     // Admin credentials and status
     private static final String ADMIN_USERNAME = "admin";
@@ -39,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Insert default users
         insertDefaultUsers(db);
+        insertDefaultProducts(db);
     }
 
     // Method to insert base users like 'admin' and 'user'
@@ -92,17 +93,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String productName;
     public String productDesc;
     public int productPrice;
-    public boolean addProduct(String productName, String productDescription, int productPrice){
-        this.productName = productName; //
+    public boolean addProduct(SQLiteDatabase db, String productName, String productDescription, int productPrice){
+        this.productName = productName;
         this.productDesc = productDescription;
         this.productPrice = productPrice;
-        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", productName);
         values.put("description", productDescription);
         values.put("price", productPrice);
         long result = db.insert("products", null, values);
         return result != -1;
+    }
+    public void insertDefaultProducts(SQLiteDatabase db) {
+        addProduct(db, "Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500);
+        addProduct(db, "laptop 2k rtx 404", "Dobry laptop uwu", 300);
+        addProduct(db, "telefon 44k intelcore 2", "Dobry telefon uwu", 500);
+        addProduct(db, "tablet 3k gtx 1090px", "Dobry tablet", 500);
     }
     public boolean isAdmin() {
         return isAdmin;

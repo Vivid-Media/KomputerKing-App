@@ -34,4 +34,5 @@
     <string name="settings_icon_alt">Settings Icon</string>
     <string name="test">"        hello world"</string>
     <string name="search_icon">Wyszukaj</string>
+    <string name="noResultsText">Brak wyników</string>
 </resources>

@@ -49,6 +49,7 @@
             android:background="#00FFFFFF"
             android:contentDescription="@string/search_icon"
             android:src="@android:drawable/ic_menu_search"
+            android:onClick="onSearch"
             app:tint="#000000" />
     </LinearLayout>
 

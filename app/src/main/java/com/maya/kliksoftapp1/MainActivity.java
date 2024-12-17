@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
 import java.util.List;
 import java.util.ArrayList;
+
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextLogin, editTextPassword;
     private Dialog settingsDialog;
     private EditText searchBox;
+    private GridLayout gridLayoutContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,31 +72,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackClick(View view){
         setContentView(R.layout.content_main);
-        searchBox = findViewById(R.id.searchBar);
-        CreateProducts();
+        //searchBox = findViewById(R.id.searchBar);
+        RenderProducts(searchBox.getText().toString());
     }
-
-    public void CreateProducts() {
-        Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
-        Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
-        Product product3 = new Product("telefon 44k intelcore 2", "Dobry telefon uwu", 500, 2);
-        Product product4 = new Product("tablet 3k gtx 1090px", "Dobry tablet", 500, 3);
-    }
-    public void RenderProducts(String searchString) {
-        GridLayout gridLayoutContainer = findViewById(R.id.products);
+    public boolean RenderProducts(String searchString) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         String query = "SELECT rowid, name, description, price FROM products WHERE name MATCH ? OR description MATCH ?";
         Cursor cursor;
         if (searchString.isEmpty()) {
             query = "SELECT rowid, name, description, price FROM products";
             cursor = db.rawQuery(query, null);
+            Log.d("ROWS", "" + cursor.getCount());
         } else {
             cursor = db.rawQuery(query, new String[]{searchString, searchString});
         }
 
         int i = 0;
         while (cursor.moveToNext()) {
-            i++;
+            Log.d("DATA FROM THE DATABASE", String.format("%s; %s; %d", cursor.getString(1),
+                    cursor.getString(2),
+                    Integer.parseInt(cursor.getString(3))));
             Product product = new Product(
                 cursor.getString(1),
                 cursor.getString(2),
@@ -137,9 +137,23 @@ public class MainActivity extends AppCompatActivity {
             paramsText2.columnSpec = GridLayout.spec(1);
             descriptionView.setLayoutParams(paramsText2);
             gridLayoutContainer.addView(descriptionView);
+            i++;
         }
         cursor.close();
         db.close();
+        return i > 0;
+    }
+
+    /** Is used by both the search box and button, depends on the input string in the search box */
+    public void onSearch(View view) {
+        String query = searchBox.getText().toString();
+        gridLayoutContainer.removeAllViews(); // empty the container for search results
+        boolean hasAnyResults = RenderProducts(query);
+        if (!hasAnyResults) {
+            TextView noResultsView = new TextView(this);
+            noResultsView.setText(R.string.noResultsText);
+            gridLayoutContainer.addView(noResultsView);
+        }
     }
 
     public void onLoginClick(View view) {
@@ -148,50 +162,21 @@ public class MainActivity extends AppCompatActivity {
         if (databaseHelper.checkUser(username, password)) {
             setContentView(R.layout.content_main); // Load main content layout
             searchBox = findViewById(R.id.searchBar);
+            searchBox.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+                @Override
+                public void afterTextChanged(Editable s) { onSearch(view); }
+            });
+            findViewById(R.id.searchButton).setOnClickListener(this::onSearch);
+            gridLayoutContainer = findViewById(R.id.products);
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-            CreateProducts();
+            Log.d("SEARCH STRING EMPTY?", "" + searchBox.getText().toString().isEmpty());
             RenderProducts(searchBox.getText().toString());
-            // Find the container in content_main.xml
-//            GridLayout gridLayoutContainer = findViewById(R.id.products);
-//
-//            for (int i = 0; i < 15; i++) {
-//                // GENERATOR image
-//                ImageView productImage = new ImageView(this);
-//                productImage.setImageResource(R.drawable.vivid_media);
-//
-//                // CSS for ImageView
-//                GridLayout.LayoutParams paramsImage = new GridLayout.LayoutParams();
-//                paramsImage.width = 750; // Width in pixels
-//                paramsImage.height = 550; // Height
-//                paramsImage.rowSpec = GridLayout.spec(i * 2, 2); // Row span = 2
-//                paramsImage.columnSpec = GridLayout.spec(0); // Column number
-//                paramsImage.setMargins(0, 0, 0, 5); // Bottom margin 5px
-//                productImage.setLayoutParams(paramsImage);
-//                gridLayoutContainer.addView(productImage);
-//
-//                // GENERATOR product name
-//                TextView nameText = new TextView(this);
-//                nameText.setText("lorem ipsum nazwa produktu");
-//                nameText.setMaxWidth(550);
-//                nameText.setTextAppearance(R.style.productListName);
-//                GridLayout.LayoutParams paramsText1 = new GridLayout.LayoutParams();
-//                paramsText1.rowSpec = GridLayout.spec(i * 2);
-//                paramsText1.columnSpec = GridLayout.spec(1);
-//                paramsText1.height = 290;
-//                nameText.setLayoutParams(paramsText1);
-//                gridLayoutContainer.addView(nameText);
-//
-//                // GENERATOR product description
-//                TextView descriptionView = new TextView(this);
-//                descriptionView.setText("lorem ipsum opis produktu");
-//                descriptionView.setMaxWidth(550);
-//                descriptionView.setTextAppearance(R.style.productListDescription);
-//                GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
-//                paramsText2.rowSpec = GridLayout.spec(i * 2 + 1);
-//                paramsText2.columnSpec = GridLayout.spec(1);
-//                descriptionView.setLayoutParams(paramsText2);
-//                gridLayoutContainer.addView(descriptionView);
-//            }
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
