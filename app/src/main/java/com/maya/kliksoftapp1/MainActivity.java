@@ -7,16 +7,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.Layout;
-
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.ArrayList;
 
 import android.text.TextWatcher;
 import android.util.Log;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -28,9 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
