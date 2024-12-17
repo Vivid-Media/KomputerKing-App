@@ -12,10 +12,10 @@
 
 
     <TextView
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="24pt"
-        android:text="@string/userPanel"
         android:textAlignment="center"
         android:textSize="@dimen/NazwaSubStrony"
         android:textStyle="bold" />

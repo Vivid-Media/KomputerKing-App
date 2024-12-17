@@ -25,5 +25,8 @@ public class Product {
     public String getProductDesc() {
         return productDesc;
     }
+    public int getProductPrice() {
+        return productPrice;
+    }
 
 }
