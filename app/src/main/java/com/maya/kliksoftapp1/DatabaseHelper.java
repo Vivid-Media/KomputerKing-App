@@ -11,18 +11,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Information
     private static final String DATABASE_NAME = "UserDatabase";
-    private static final int DATABASE_VERSION = 3;
-
-    // Table and Column Names
-    private static final String TABLE_USERS = "users";
-    private static final String TABLE_PRODUCTS = "products";
-
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_USERNAME = "username";
-    private static final String COLUMN_PASSWORD = "password";
-    private static final String COLUMN_PRODUCT_NAME = "name";
-    private static final String COLUMN_PRODUCT_DESC = "description";
-    private static final String COLUMN_PRODUCT_PRICE = "price";
+    private static final int DATABASE_VERSION = 6;   // 1 more to update
 
     // Admin Credentials
     private static final String ADMIN_USERNAME = "admin";
@@ -35,26 +24,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create Users Table
-        db.execSQL("CREATE TABLE " + TABLE_USERS + " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_USERNAME + " TEXT, " +
-                COLUMN_PASSWORD + " TEXT)");
-
-        // Create Products Table
-        db.execSQL("CREATE TABLE " + TABLE_PRODUCTS + " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_PRODUCT_NAME + " TEXT, " +
-                COLUMN_PRODUCT_DESC + " TEXT, " +
-                COLUMN_PRODUCT_PRICE + " INTEGER)");
+        // Create the users table
+        db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
+        db.execSQL("CREATE VIRTUAL TABLE products USING fts4(name, description, price)");
 
         insertDefaultUsers(db);
+        insertDefaultProducts(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS users");
+        db.execSQL("DROP TABLE IF EXISTS products");
         onCreate(db);
     }
 
@@ -66,23 +47,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void addUser(SQLiteDatabase db, String username, String password) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, username);
-        values.put(COLUMN_PASSWORD, password);
-        db.insert(TABLE_USERS, null, values);
+        values.put("username", username);
+        values.put("password", password);
+        db.insert("users", null, values);
     }
 
     public boolean addUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, username);
-        values.put(COLUMN_PASSWORD, password);
-        long result = db.insert(TABLE_USERS, null, values);
+        values.put("username", username);
+        values.put("password", password);
+        long result = db.insert("users", null, values);
         return result != -1;
     }
 
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + "=? AND " + COLUMN_PASSWORD + "=?";
+        String query = "SELECT * FROM users WHERE username=? AND password=?";
         Cursor cursor = db.rawQuery(query, new String[]{username, password});
 
         boolean exists = cursor.getCount() > 0;
@@ -95,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public int getUserId(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT " + COLUMN_ID + " FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + "=?", new String[]{username});
+        Cursor cursor = db.rawQuery("SELECT id FROM users WHERE username=?", new String[]{username});
         int userId = -1;
         if (cursor.moveToFirst()) {
             userId = cursor.getInt(0);
@@ -106,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String getUserName(int userId) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS + " WHERE " + COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
+        Cursor cursor = db.rawQuery("SELECT username FROM users WHERE id=?", new String[]{String.valueOf(userId)});
         String username = null;
         if (cursor.moveToFirst()) {
             username = cursor.getString(0);
@@ -115,18 +96,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return username;
     }
 
-    public boolean addProduct(String productName, String productDesc, int productPrice) {
+    public boolean addProduct(SQLiteDatabase db, String productName, String productDesc, int productPrice) {
         if (productPrice <= 0) {
             Log.e("Database", "Invalid price: " + productPrice);
             return false;
         }
-        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCT_NAME, productName);
-        values.put(COLUMN_PRODUCT_DESC, productDesc);
-        values.put(COLUMN_PRODUCT_PRICE, productPrice);
-        long result = db.insert(TABLE_PRODUCTS, null, values);
+        values.put("name", productName);
+        values.put("description", productDesc);
+        values.put("price", productPrice);
+        long result = db.insert("products", null, values);
         return result != -1;
+    }
+
+    public void insertDefaultProducts(SQLiteDatabase db) {
+        addProduct(db, "Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500);
+        addProduct(db, "laptop 2k rtx 404", "Dobry laptop uwu", 300);
+        addProduct(db, "telefon 44k intelcore 2", "Dobry telefon uwu", 500);
+        addProduct(db, "tablet 3k gtx 1090px", "Dobry tablet", 500);
+        addProduct(db, "telewizor 12k LG", "Tv 12k firmy lg", 5000);
     }
 
     public boolean isAdmin() {

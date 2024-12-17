@@ -6,14 +6,14 @@ import java.util.Dictionary;
 public class Product {
     public String productName;
     public String productDesc;
-    public String productPrice;
+    public int productPrice;
     public int id;
 
     Product(String name, String desc, int price, int id){
         super();
         this.productName = name;
         this.productDesc = desc;
-        this.productPrice = String.valueOf(price);
+        this.productPrice = price;
         this.id = id;
     }
     public int getId() {
@@ -25,7 +25,7 @@ public class Product {
     public String getProductDesc() {
         return productDesc;
     }
-    public String getProductPrice() {
+    public int getProductPrice() {
         return productPrice;
     }
 

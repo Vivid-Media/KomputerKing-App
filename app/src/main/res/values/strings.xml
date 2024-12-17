@@ -24,14 +24,21 @@
     <string name="loginButtonRegisterText">Zarejestruj</string>
     <string name="loginButtonNoAccountText">Nie mam konta</string>
     <string name="copyrightText">© Vivid Media Inc</string>
-    <string name="passwordHint">Twoje hasło...</string>
-    <string name="loginNameHint">Twój login...</string>
-    <string name="repeatPasswordHint">Powtórz hasło...</string>
+    <string name="passwordHint">Twoje hasło…</string>
+    <string name="loginNameHint">Twój login…</string>
+    <string name="repeatPasswordHint">Powtórz hasło…</string>
     <string name="searchHint">Czego szukasz?</string>
     <string name="loginTextRepeatPassword">Powtórz Hasło</string>
     <string name="shopping_cart_icon_alt">Shopping Cart ICON</string>
     <string name="profile_image_alt">Profile Image</string>
     <string name="settings_icon_alt">Settings Icon</string>
-    <string name="cena_display">Cena: zł</string>
+    <string name="test">"        hello world"</string>
+    <string name="search_icon">Wyszukaj</string>
+    <string name="noResultsText">Brak wyników</string>
+    <string name="cena_display">Cena: %d zł</string>
     <string name="produkt_name">Produkt</string>
+    <string name="add_to_cart">Dodaj do koszyka</string>
+    <string name="addedToCart">Dodano %s do koszyka</string>
+    <string name="productDisplay">%s\nPrice: %d zł</string>
+    <string name="unknown_user">Nieznany użytkownik</string>
 </resources>

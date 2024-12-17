@@ -2,8 +2,17 @@ package com.maya.kliksoftapp1;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextWatcher;
+import android.util.Log;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -16,16 +25,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper databaseHelper;
     private EditText editTextLogin, editTextPassword;
+    private Dialog settingsDialog;
+    private EditText searchBox;
+    private GridLayout gridLayoutContainer;
     private List<Integer> cartProductIds = new ArrayList<>();
-
-    private Dialog settingsDialog, shoppingCartDialog;
+    private Dialog shoppingCartDialog;
+    private Resources res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize EditText fields
         editTextLogin = findViewById(R.id.editTextLogin);
         editTextPassword = findViewById(R.id.editTextPassword);
+        res = getResources();
 
         // Initialize dialogs
         setupSettingsDialog();
@@ -109,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Product Details
                 TextView productDetails = new TextView(this);
-                productDetails.setText(product.getProductName() + "\nPrice: " + product.getProductPrice());
+                productDetails.setText(String.format(res.getString(R.string.productDisplay), product.getProductName(), product.getProductPrice()));
                 productDetails.setPadding(16, 8, 16, 8);
 
                 // Add the product image and details to the GridLayout
@@ -123,8 +133,29 @@ public class MainActivity extends AppCompatActivity {
         window.setContentView(scrollView);
     }
 
-
-
+    private List<Product> getSampleProducts() {
+        ArrayList<Product> prodList = new ArrayList<>();
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String query = "SELECT rowid, name, description, price FROM products";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount() < 1) {
+            return null;
+        }
+        while (cursor.moveToNext()) {
+            Log.d("DATA FROM THE DATABASE", String.format("%s; %s; %d", cursor.getString(1),
+                    cursor.getString(2),
+                    Integer.parseInt(cursor.getString(3))));
+            Product product = new Product(
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    Integer.parseInt(cursor.getString(3)),
+                    Integer.parseInt(cursor.getString(0))
+            );
+            prodList.add(product);
+        }
+        cursor.close();
+        return prodList;
+    }
 
     public void onProfileClick(View view) {
         setContentView(R.layout.profile_page);
@@ -138,39 +169,47 @@ public class MainActivity extends AppCompatActivity {
         if (username != null) {
             userNameTextView.setText(username);
         } else {
-            userNameTextView.setText("Unknown User");
+            userNameTextView.setText(R.string.unknown_user);
         }
     }
 
     public void onBackClick(View view) {
         setContentView(R.layout.content_main);
-        createProducts();
+        initializeViews();
+        onSearch(view);
     }
+    public boolean RenderProducts(String searchString) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String query = "SELECT rowid, name, description, price FROM products WHERE name MATCH ? OR description MATCH ?";
+        Cursor cursor;
+        if (searchString.isEmpty()) {
+            query = "SELECT rowid, name, description, price FROM products";
+            cursor = db.rawQuery(query, null);
+            Log.d("ROWS", "" + cursor.getCount());
+        } else {
+            cursor = db.rawQuery(query, new String[]{searchString, searchString});
+        }
 
-    public void createProducts() {
-        GridLayout gridLayoutContainer = findViewById(R.id.products);
+        int i = 0;
+        while (cursor.moveToNext()) {
+            Log.d("DATA FROM THE DATABASE", String.format("%s; %s; %d", cursor.getString(1),
+                    cursor.getString(2),
+                    Integer.parseInt(cursor.getString(3))));
+            Product product = new Product(
+                cursor.getString(1),
+                cursor.getString(2),
+                Integer.parseInt(cursor.getString(3)),
+                Integer.parseInt(cursor.getString(0))
+            );
+            // zrobbic takie do automatycznego ten no products.add(product.getProductName());
 
-        // Creating sample products
-        Product product1 = new Product("Komputer 4k rtx 4024", "Dobry komputer do gier uwu", 500, 0);
-        Product product2 = new Product("laptop 2k rtx 404", "Dobry laptop uwu", 300, 1);
-        Product product3 = new Product("telefon HD intelcore 2", "Dobry telefon", 300, 2);
-        Product product4 = new Product("tablet 3k gtx 1090px", "Dobry tablet", 500, 3);
-        Product product5 = new Product("telewizor 12k LG", "Tv 12k firmy lg", 5000, 4);
-
-        // Adding products to the list
-        List<Product> products = new ArrayList<>();
-        products.add(product1);
-        products.add(product2);
-        products.add(product3);
-        products.add(product4);
-        products.add(product5);
-
-        // Loop to add each product
-        for (int i = 0; i < products.size(); i++) {
-            Product product = products.get(i);  // Fetch each product
+            //databaseHelper.addProduct(product.productName, "Opis "+i, 120);
+            // GENERATOR image
 
             // Generate product image
-            String imageName = "zdjecie" + (i);  // Image name pattern
+            String imageName = "zdjecie" + (product.getId() - 1);  // Image name pattern
+            Log.d("PRODUCT ID", ""+product.getId());
+
             ImageView productImage = new ImageView(this);
             int imageResource = getResources().getIdentifier(imageName, "drawable", getPackageName());
             productImage.setImageResource(imageResource);
@@ -187,12 +226,12 @@ public class MainActivity extends AppCompatActivity {
 
             // Add to Cart Button
             TextView addToCartButton = new TextView(this);
-            addToCartButton.setText("Add to Cart");
+            addToCartButton.setText(R.string.add_to_cart);
             addToCartButton.setTextColor(getResources().getColor(R.color.black));  // Assuming the color is defined in your colors.xml
             addToCartButton.setPadding(8, 8, 8, 8);
             addToCartButton.setOnClickListener(view -> {
                 cartProductIds.add(product.getId());  // Assuming cartProductIds is properly initialized
-                Toast.makeText(this, product.getProductName() + " added to cart!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, String.format(res.getString(R.string.addedToCart), product.getProductName()), Toast.LENGTH_SHORT).show();
             });
             GridLayout.LayoutParams paramsButton = new GridLayout.LayoutParams();
             paramsButton.rowSpec = GridLayout.spec(i * 5 + 1);  // Button directly under the image (next row)
@@ -213,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Product price TextView
             TextView priceText = new TextView(this);
-            priceText.setText("Cena " + product.getProductPrice() + " zł");
+            priceText.setText(String.format(res.getString(R.string.cena_display), product.getProductPrice()));
             priceText.setMaxWidth(550);
             priceText.setTextAppearance(R.style.productListName);  // Assuming you have a style for price
             GridLayout.LayoutParams paramsText2 = new GridLayout.LayoutParams();
@@ -232,46 +271,79 @@ public class MainActivity extends AppCompatActivity {
             paramsText3.columnSpec = GridLayout.spec(1);  // First column
             descriptionView.setLayoutParams(paramsText3);
             gridLayoutContainer.addView(descriptionView);
+            i++;
+        }
+        cursor.close();
+        db.close();
+        return i > 0;
+    }
+
+    /** Is used by both the search box and button, depends on the input string in the search box */
+    public void onSearch(View view) {
+        String query = searchBox.getText().toString();
+        gridLayoutContainer.removeAllViews(); // empty the container for search results
+        boolean hasAnyResults = RenderProducts(query);
+        if (!hasAnyResults) {
+            TextView noResultsView = new TextView(this);
+            noResultsView.setText(R.string.noResultsText);
+            gridLayoutContainer.addView(noResultsView);
         }
     }
 
-
-
-
+    public void initializeViews() {
+        searchBox = findViewById(R.id.searchBar);
+        gridLayoutContainer = findViewById(R.id.products);
+    }
     public void onLoginClick(View view) {
         String username = editTextLogin.getText().toString();
         String password = editTextPassword.getText().toString();
-
         if (databaseHelper.checkUser(username, password)) {
             int userId = databaseHelper.getUserId(username);
 
             SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
             sharedPreferences.edit().putInt("USER_ID", userId).apply();
 
-            setContentView(R.layout.content_main);
+            setContentView(R.layout.content_main); // Load main content layout
+            initializeViews();
+
+            searchBox.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    onSearch(view);
+                }
+            });
+            findViewById(R.id.searchButton).setOnClickListener(this::onSearch);
+
             Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-            createProducts();
+            Log.d("SEARCH STRING EMPTY?", "" + searchBox.getText().toString().isEmpty());
+            RenderProducts(searchBox.getText().toString());
         } else {
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private List<Product> getSampleProducts() {
-        List<Product> products = new ArrayList<>();
-        products.add(new Product("Komputer 4k RTX 4024", "Gaming PC", 500, 0));
-        products.add(new Product("Laptop 2k RTX 404", "Good laptop", 300, 1));
-        products.add(new Product("Telefon HD IntelCore 2", "Good phone", 300, 2));
-        products.add(new Product("Tablet 3k GTX 1090px", "Good tablet", 500, 3));
-        products.add(new Product("Telewizor 12k LG", "12K TV by LG", 5000, 4));
-        return products;
-    }
-
     private Product getProductById(List<Product> products, int id) {
-        for (Product product : products) {
-            if (product.getId() == id) {
-                return product;
-            }
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        String query = "SELECT rowid, name, description, price FROM products WHERE rowid=?";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount() < 1) {
+            return null;
         }
-        return null;
+        Product prod = new Product(
+            cursor.getString(1),
+            cursor.getString(2),
+            Integer.parseInt(cursor.getString(3)),
+            Integer.parseInt(cursor.getString(0))
+        );
+        cursor.close();
+        return prod;
     }
 }
