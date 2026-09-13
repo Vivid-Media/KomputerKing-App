@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fab_margin">16sp</dimen>
+    <dimen name="settingstestSize">42sp</dimen>
+    <dimen name="NazwaSubStrony">42sp</dimen>
+    <dimen name="settingsOptiontextSize">28sp</dimen>
+    <dimen name="loginTextSize">18sp</dimen>
+    <dimen name="maxSzerokoscOpisu">180dp</dimen>
+    <dimen name="wielkoscobrProdukt">147dp</dimen>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="copyrightText">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">14.6sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">@string/copyrightText</item>
+    </style>
+
+
+    <style name="productListDescription">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxWidth">@dimen/maxSzerokoscOpisu</item>
+        <item name="android:text">@string/productPlaceholderDescription</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="productListName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:maxWidth">170dp</item>
+        <item name="android:text">@string/productPlaceholderName</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+
+
+
+</resources>
